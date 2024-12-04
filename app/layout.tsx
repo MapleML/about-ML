@@ -7,15 +7,22 @@ import NavBar from "@/components/NavBar";
 
 export const metadata: Metadata = {
   title: "small R",
-  description: "一位熱愛寫程式、打遊戲、看動漫的五專生",
+  description: "一位熱愛寫程式、玩遊戲、看動漫的五專生",
   keywords: ["程式開發", "遊戲", "動漫", "Next.js", "React"],
-  authors: [{ name: "small R" }],
   openGraph: {
     title: "small R",
-    description: "一位熱愛寫程式、打遊戲、看動漫的五專生",
+    description: "一位熱愛寫程式、玩遊戲、看動漫的五專生",
     siteName: "small R",
     locale: "zh_TW",
     type: "website",
+    images: [
+      {
+        url: "/Images/HeroAvatar.jpg",
+        width: 1200,
+        height: 630,
+        alt: "small R 個人網站",
+      },
+    ],
   },
 };
 
