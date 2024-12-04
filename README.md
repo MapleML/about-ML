@@ -5,6 +5,8 @@
 
 網站目前仍在開發階段，以下是已規劃的主要部分：  
 
+<img src="./public/thumbnail.png" alt="Hero 區塊" width="400" height="250" />
+
 ## 功能構想
 - **Hero 區塊**：酷炫的歡迎畫面與自我介紹。
 - **About Me**：介紹我的背景與興趣。
