@@ -15,14 +15,6 @@ export const metadata: Metadata = {
     siteName: "small R",
     locale: "zh_TW",
     type: "website",
-    images: [
-      {
-        url: "/Images/HeroAvatar.jpg",
-        width: 1200,
-        height: 630,
-        alt: "small R 個人網站",
-      },
-    ],
   },
 };
 

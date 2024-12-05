@@ -9,15 +9,16 @@ const Avatar: React.FC = () => (
   <div className="relative aspect-square w-56 sm:w-72 md:w-80 lg:w-96">
     <div className="group relative size-full">
       <div className="relative size-full overflow-hidden rounded-full bg-neutral-50/30 shadow-lg backdrop-blur-sm">
-        <Image
-          src="/Images/HeroAvatar.jpg"
-          alt="Hero Avatar"
-          width={1920} // 設置固定寬度
-          height={1080} // 設置固定高度
-          priority
-          quality={75}
-          className="size-full object-cover"
-        />
+      <Image 
+  src="/Images/HeroAvatar.jpg"
+  alt="Hero Avatar"
+  width={400}  // 使用更合適的尺寸
+  height={400}
+  placeholder="blur"
+  blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRg..."  // 添加模糊預覽
+  className="size-full object-cover"
+  loading="eager"  // 優先加載關鍵圖片
+/>
       </div>
 
       {/* 使用自定義的配色方案來裝飾圓圈 */}
