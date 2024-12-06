@@ -34,12 +34,13 @@ interface TagProps {
 const Tag = ({ text, variant }: TagProps) => {
   const variants = {
     primary: "bg-primary-50/80 text-primary-600 border border-primary-100",
-    secondary: "bg-secondary-50/80 text-secondary-600 border border-secondary-100",
+    secondary:
+      "bg-secondary-50/80 text-secondary-600 border border-secondary-100",
     accent: "bg-accent-50/80 text-accent-600 border border-accent-100",
   };
 
   return (
-    <span 
+    <span
       className={`
         rounded-full px-3 py-1 text-sm 
         backdrop-blur-sm 
@@ -53,7 +54,7 @@ const Tag = ({ text, variant }: TagProps) => {
 
 const InfoCard = ({ icon: Icon, title, children }: InfoCardProps) => {
   return (
-    <div 
+    <div
       className="
         rounded-xl 
         border border-accent-100/20
@@ -91,7 +92,7 @@ const SocialLinks: React.FC = () => (
             item.ariaLabel || `Visit my ${item.href.split("/").slice(-1)[0]}`
           }
         >
-          <div className="relative flex size-12 items-center justify-center rounded-full bg-neutral-50/60 p-2 backdrop-blur-sm transition-all duration-200 ease-in-out hover:bg-neutral-100/80 hover:shadow-md">
+          <div className="relative flex size-12 items-center justify-center rounded-full bg-neutral-50/60 p-2 backdrop-blur-sm transition-all duration-200 ease-in-out hover:bg-neutral-100/80">
             <Icon
               className={`size-5 transition-transform duration-200 ease-in-out group-hover:rotate-3 group-hover:scale-110 ${item.className
                 .split(" ")
@@ -116,48 +117,57 @@ export default function About() {
   ];
 
   return (
-    <section id="about" className="mx-auto min-h-screen px-4 py-8 sm:py-12 md:py-16">
+    <section
+      id="about"
+      className="mx-auto min-h-screen px-4 py-8 sm:py-12 md:py-16"
+    >
       <div className="mx-auto flex max-w-6xl flex-col items-center">
         {/* 個人資訊卡片 */}
-        <div className="
+        <div
+          className="
           w-full rounded-2xl 
           border border-accent-100/20
           bg-white/40 p-4 
           shadow-[0_8px_30px_rgb(0,0,0,0.06)] 
           backdrop-blur-md
           sm:p-6 md:p-8
-        ">
+        "
+        >
           <div className="grid gap-8 md:grid-cols-[240px,1fr]">
             {/* 左側：頭像和社交連結 */}
-            <div className="
+            <div
+              className="
               flex flex-col items-center gap-6
               md:border-r md:border-accent-100/20 md:pr-8
-            ">
-              <div className="
+            "
+            >
+              <div
+                className="
                 relative aspect-square w-28
                 overflow-hidden rounded-full 
                 bg-neutral-100 
                 sm:w-32 md:w-40
-              ">
-                <Image 
-  src="/Images/HeroAvatar.jpg"
-  alt="Hero Avatar"
-  width={400}  // 使用更合適的尺寸
-  height={400}
-  placeholder="blur"
-  blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRg..."  // 添加模糊預覽
-  className="size-full object-cover"
-  loading="eager"  // 優先加載關鍵圖片
-/>
+              "
+              >
+                <Image
+                  src="/Images/HeroAvatar.jpg"
+                  alt="Hero Avatar"
+                  width={400}
+                  height={400}
+                  placeholder="blur"
+                  blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRg..."
+                  className="size-full object-cover"
+                  loading="eager"
+                />
               </div>
               <SocialLinks />
             </div>
-  
+
             {/* 右側：詳細介紹 */}
             <div className="flex flex-col gap-6">
               <div>
-                <h2 className="mb-4 text-center text-2xl font-bold text-neutral-900 md:text-left md:text-3xl">
-                  自我介紹
+                <h2 className="mb-4 text-center font-serif text-3xl font-bold text-neutral-800 md:text-left md:text-4xl">
+                  About Me!
                 </h2>
                 <div className="flex flex-wrap justify-center gap-2 md:justify-start">
                   <Tag text="🌟 16歲" variant="primary" />
@@ -178,24 +188,26 @@ export default function About() {
             </div>
           </div>
         </div>
-  
+
         {/* 分類標籤 */}
         <div className="my-8 w-full max-w-md">
-          <nav className="
+          <nav
+            className="
             relative flex rounded-full
             border border-accent-100/20
             bg-white/60 p-1.5
             shadow-sm backdrop-blur-md
-          ">
+          "
+          >
             {tabs.map((tab, index) => {
               const Icon = tab.icon;
               const isActive = activeTab === tab.id;
               const activeColors = [
                 "bg-primary-300",
                 "bg-secondary-200",
-                "bg-accent-200"
+                "bg-accent-200",
               ];
-              
+
               return (
                 <button
                   key={tab.id}
@@ -219,7 +231,7 @@ export default function About() {
             })}
           </nav>
         </div>
-  
+
         {/* Tab 內容 */}
         <div className="grid w-full gap-6">
           {activeTab === "personality" && (
@@ -228,78 +240,89 @@ export default function About() {
                 <div className="space-y-3 text-neutral-600">
                   <p>• 不熟的時候輕微社恐，熟了之後變成社交恐怖</p>
                   <p>• 喜歡用顏文字和注音符號 (｀・ω・´)</p>
-                  <p>• 說話風格直白，經常整活發廢文</p>
+                  <p>• 說話風格直白，經常講幹話發幹文</p>
                   <p>• 討論喜歡的話題會特別興奮</p>
                 </div>
               </InfoCard>
-              
+
               <InfoCard icon={Star} title="個性特點">
                 <div className="space-y-3 text-neutral-600">
                   <p>• 對喜歡的事物會非常投入</p>
                   <p>• 熱愛學習新技術和知識</p>
                   <p>• 偶爾會陷入自己的世界</p>
-                  <p>• 需要時間建立信任，但熟了之後會很開</p>
+                  <p>• 有點瘋癲(?</p>
                 </div>
               </InfoCard>
             </div>
           )}
-  
+
           {activeTab === "interests" && (
             <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
               <InfoCard icon={TvIcon} title="動漫愛好">
                 <div className="space-y-4">
                   <div className="rounded-lg bg-white/30 p-3 backdrop-blur-sm">
-                    <h4 className="mb-2 font-medium text-accent-300">最愛作品</h4>
-                    <p className="text-neutral-600">
+                    <h4 className="mb-2 font-medium text-accent-300">
+                      最愛作品
+                    </h4>
+                    <p className="text-justify text-neutral-600">
                       孤獨搖滾、葬送的芙莉蓮、死神
                     </p>
                   </div>
                   <div className="rounded-lg bg-white/30 p-3 backdrop-blur-sm">
-                    <h4 className="mb-2 font-medium text-accent-300">追番習慣</h4>
-                    <p className="text-pretty text-neutral-600">
-                      動畫瘋/YT/Netflix 不喜歡去追熱門動畫(除非真的很喜歡) 會熱度過才開始補 
-                      喜歡一次追完 但喜歡的作品就會捨不得看完 每看完一個自認為的神作就會陷入戒斷期
+                    <h4 className="mb-2 font-medium text-accent-300">
+                      追番習慣
+                    </h4>
+                    <p className="text-justify text-neutral-600">
+                      動畫瘋/YT/Netflix 不喜歡去追熱門動畫{"(除非真的很喜歡)"}
+                      會熱度過才開始補，喜歡一次追完，但喜歡的作品又會捨不得看完
+                      {"("}有點矛盾? 每看完一個自認為的神作就會陷入戒斷期
                     </p>
                   </div>
                 </div>
               </InfoCard>
-  
+
               <InfoCard icon={GamepadIcon} title="遊戲開發">
                 <div className="space-y-4">
                   <div className="rounded-lg bg-white/30 p-3 backdrop-blur-sm">
-                    <h4 className="mb-2 font-medium text-accent-300">開發平台</h4>
-                    <p className="text-neutral-600">
-                      主要在 Roblox 上開發小遊戲和模組
+                    <h4 className="mb-2 font-medium text-accent-300">
+                      開發平台
+                    </h4>
+                    <p className="text-justify text-neutral-600">
+                      專注於 Roblox 遊戲開發與接案服務，擅長運用 Roblox Studio
+                      進行遊戲製作和客製化開發
                     </p>
                   </div>
                   <div className="rounded-lg bg-white/30 p-3 backdrop-blur-sm">
                     <h4 className="mb-2 font-medium text-accent-300">技能</h4>
-                    <p className="text-neutral-600">
-                      擅長使用 Lua/Luau 寫遊戲邏輯
+                    <p className="text-justify text-neutral-600">
+                      專精於 Roblox Studio
+                      開發，主要專注於前後端整合、使用者介面設計與遊戲邏輯實作。具備完整的遊戲腳本開發經驗
                     </p>
                   </div>
                 </div>
               </InfoCard>
-  
+
               <InfoCard icon={Code} title="網頁開發">
                 <div className="space-y-4">
                   <div className="rounded-lg bg-white/30 p-3 backdrop-blur-sm">
-                    <h4 className="mb-2 font-medium text-accent-300">技術興趣</h4>
-                    <p className="text-neutral-600">
+                    <h4 className="mb-2 font-medium text-accent-300">
+                      技術興趣
+                    </h4>
+                    <p className="text-justify text-neutral-600">
                       正在學習 Next.js 和 Tailwind CSS
                     </p>
                   </div>
                   <div className="rounded-lg bg-white/30 p-3 backdrop-blur-sm">
                     <h4 className="mb-2 font-medium text-accent-300">目標</h4>
-                    <p className="text-neutral-600">
-                      想成為全端工程師，持續學習中！
+                    <p className="text-justify text-neutral-600">
+                      想成為網頁全端工程師，持續學習中！
                     </p>
                   </div>
                 </div>
               </InfoCard>
             </div>
           )}
-  
+
           {activeTab === "notice" && (
             <div className="grid gap-6 sm:grid-cols-2">
               <InfoCard icon={MessageCircle} title="我的雷點">
@@ -310,7 +333,7 @@ export default function About() {
                   <p>• 偶爾會進入肝專案模式</p>
                 </div>
               </InfoCard>
-  
+
               <InfoCard icon={Star} title="相處提示">
                 <div className="space-y-3 text-neutral-600">
                   <p>• 變熟後會變得很瘋，喜歡吵你</p>

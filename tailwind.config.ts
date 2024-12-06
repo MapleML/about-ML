@@ -6,6 +6,11 @@ export default {
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
+  safelist: [
+    {
+      pattern: /^text-(primary|secondary|accent)-(50|100|200|300|400|500|600)$/,
+    },
+  ],
   theme: {
     screens: {
       xs: "480px",
@@ -17,26 +22,17 @@ export default {
     extend: {
       colors: {
         // 藍色系列
-        // 我們從最淺色開始，逐漸加深。這個漸進可以創造出自然的視覺層次
         primary: {
-          // 50: 最淺色，通常用於背景、hover 狀態的背景等
           50: "#F0F7FF",
-          // 100: 稍微深一點，適合用於邊框、分隔線
           100: "#E0EDFF",
-          // 200: 中淺色，適合用於次要元素的背景
           200: "#BAD6FF",
-          // 300: 中等深淺，可用於次要文字
           300: "#8ABBFF",
-          // 400: 中深色，常用於 hover 狀態的文字
           400: "#4A9BFF",
-          // 500: 主要顏色，用於主要文字和重要元素
           500: "#0070F3",
-          // 600: 深色，用於強調和重要文字
           600: "#0055CC",
         },
 
-        // 琥珀色系列
-        // 作為輔助色系，用於警告、提示等情況
+        // 黃色系列
         secondary: {
           50: "#FFF8E6",
           100: "#FFEDC2",
@@ -48,7 +44,6 @@ export default {
         },
 
         // 粉色系列
-        // 用於強調和特殊元素，為界面添加活力
         accent: {
           50: "#FFF0F7",
           100: "#FFE3EF",
@@ -60,7 +55,6 @@ export default {
         },
 
         // 中性色系列
-        // 用於文字、背景等基礎元素
         neutral: {
           50: "#F8FAFC",
           100: "#F1F5F9",

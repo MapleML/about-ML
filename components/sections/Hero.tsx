@@ -9,16 +9,16 @@ const Avatar: React.FC = () => (
   <div className="relative aspect-square w-56 sm:w-72 md:w-80 lg:w-96">
     <div className="group relative size-full">
       <div className="relative size-full overflow-hidden rounded-full bg-neutral-50/30 shadow-lg backdrop-blur-sm">
-      <Image 
-  src="/Images/HeroAvatar.jpg"
-  alt="Hero Avatar"
-  width={400}  // 使用更合適的尺寸
-  height={400}
-  placeholder="blur"
-  blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRg..."  // 添加模糊預覽
-  className="size-full object-cover"
-  loading="eager"  // 優先加載關鍵圖片
-/>
+        <Image
+          src="/Images/HeroAvatar.jpg"
+          alt="Hero Avatar"
+          width={400}
+          height={400}
+          placeholder="blur"
+          blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRg..."
+          className="size-full object-cover"
+          loading="eager"
+        />
       </div>
 
       {/* 使用自定義的配色方案來裝飾圓圈 */}
@@ -61,7 +61,7 @@ const SocialLinks: React.FC = () => (
             item.ariaLabel || `Visit my ${item.href.split("/").slice(-1)[0]}`
           }
         >
-          <div className="relative flex size-14 items-center justify-center rounded-full bg-neutral-50/60 p-2 backdrop-blur-sm transition-all duration-200 ease-in-out hover:bg-neutral-100/80 hover:shadow-md">
+          <div className="relative flex size-14 items-center justify-center rounded-full bg-neutral-50/60 p-2 backdrop-blur-sm transition-all duration-200 ease-in-out hover:bg-neutral-100/80">
             <Icon
               className={`size-6 transition-transform duration-200 ease-in-out group-hover:rotate-3 group-hover:scale-110 ${item.className
                 .split(" ")
