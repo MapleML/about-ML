@@ -249,7 +249,8 @@ export default function About() {
                   <p>• 對喜歡的事物會非常投入</p>
                   <p>• 熱愛學習新技術和知識</p>
                   <p>• 偶爾會陷入自己的世界</p>
-                  <p>• 有點瘋癲(?</p>
+                  <p>• 討論動漫或技術時會特別興奮</p>
+                  <p>• 對不熟的人比較害羞</p>
                 </div>
               </InfoCard>
             </div>
@@ -264,7 +265,7 @@ export default function About() {
                       最愛作品
                     </h4>
                     <p className="text-justify text-neutral-600">
-                      孤獨搖滾、葬送的芙莉蓮、死神
+                      孤獨搖滾、葬送的芙莉蓮、死神、烙印勇士
                     </p>
                   </div>
                   <div className="rounded-lg bg-white/30 p-3 backdrop-blur-sm">
@@ -326,19 +327,17 @@ export default function About() {
             <div className="grid gap-6 sm:grid-cols-2">
               <InfoCard icon={MessageCircle} title="我的雷點">
                 <div className="space-y-3 text-neutral-600">
-                  <p>• 重視互相尊重的交流氛圍</p>
-                  <p>• 專注模式時可能會暫時消失</p>
-                  <p>• 對不熟的人比較害羞</p>
-                  <p>• 偶爾會進入肝專案模式</p>
+                  <p>• 不尊重我的朋友</p>
+                  <p>• 好像就沒其他的了?</p>
                 </div>
               </InfoCard>
 
-              <InfoCard icon={Star} title="相處提示">
+              <InfoCard icon={Star} title="可能雷你">
                 <div className="space-y-3 text-neutral-600">
                   <p>• 變熟後會變得很瘋，喜歡吵你</p>
-                  <p>• 熟了之後可能會傳幹片給你</p>
-                  <p>• 討論動漫或技術時會特別興奮</p>
-                  <p>• 喜歡分享有趣的事和迷因</p>
+                  <p>• 熟了之後可能會傳一堆幹片給你</p>
+                  <p>• 專注模式時可能會暫時消失</p>
+                  <p>• 有點抽象(?</p>
                 </div>
               </InfoCard>
             </div>

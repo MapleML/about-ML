@@ -81,7 +81,7 @@ const SelfIntroduction: React.FC = () => (
     <div className="rounded-2xl  bg-neutral-50/60 p-6 backdrop-blur-md">
       <p className="text-center text-base leading-relaxed text-neutral-700 sm:text-lg lg:text-left">
         目前是個五專資工學生，我最喜歡寫程式、玩遊戲、看動漫、聽音樂
-        最愛的動漫有『孤獨搖滾』、『葬送的芙莉蓮』、『死神』。
+        只想要過平靜的生活，因為我是個 Chill Guy
       </p>
     </div>
   </div>

@@ -44,7 +44,7 @@ export const socialLinks = [
   },
   {
     icon: FaDiscord,
-    href: "https://discord.com/users/701010059743854622",
+    href: "https://discord.gg/cG6PXRKe",
     className: "text-primary-500 transition-colors duration-200",
     ariaLabel: "Connect with me on Discord",
   },
