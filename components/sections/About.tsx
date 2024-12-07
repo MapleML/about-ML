@@ -179,10 +179,9 @@ export default function About() {
               <div className="prose prose-neutral mx-auto max-w-none md:mx-0">
                 <p className="text-center text-neutral-600 md:text-left">
                   一個愛看動漫的宅宅高中牲 (・ω・)！
-                  生日02/15，平常除了寫程式，喜歡玩遊戲、追番，
-                  最近在追的是葬送的芙莉蓮和孤獨搖滾！
+                  生日02/15，平常除了寫程式，喜歡玩遊戲、看動漫，
                   最常在threads發幹文和分享有趣的事，
-                  想認識同好，一起討論動漫和技術 ヽ(✿ﾟ▽ﾟ)ノ
+                  想認識同好，一起討論動漫或技術 ヽ(✿ﾟ▽ﾟ)ノ
                 </p>
               </div>
             </div>
