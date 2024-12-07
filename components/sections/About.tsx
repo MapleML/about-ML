@@ -237,7 +237,6 @@ export default function About() {
             <div className="grid gap-6 sm:grid-cols-2">
               <InfoCard icon={MessageCircle} title="溝通風格">
                 <div className="space-y-3 text-neutral-600">
-                  <p>• 不熟的時候輕微社恐，熟了之後變成社交恐怖</p>
                   <p>• 喜歡用顏文字和注音符號 (｀・ω・´)</p>
                   <p>• 說話風格直白，經常講幹話發幹文</p>
                   <p>• 討論喜歡的話題會特別興奮</p>
@@ -250,7 +249,7 @@ export default function About() {
                   <p>• 熱愛學習新技術和知識</p>
                   <p>• 偶爾會陷入自己的世界</p>
                   <p>• 討論動漫或技術時會特別興奮</p>
-                  <p>• 對不熟的人比較害羞</p>
+                  <p>• 對不熟的人比較害羞 (在現實生活中)</p>
                 </div>
               </InfoCard>
             </div>
@@ -273,7 +272,7 @@ export default function About() {
                       追番習慣
                     </h4>
                     <p className="text-justify text-neutral-600">
-                      動畫瘋/YT/Netflix 不喜歡去追熱門動畫{"(除非真的很喜歡)"}
+                      動畫瘋/YT/Netflix 不喜歡去追熱門動畫 {"(除非真的很喜歡)"}
                       會熱度過才開始補，喜歡一次追完，但喜歡的作品又會捨不得看完
                       {"("}有點矛盾? 每看完一個自認為的神作就會陷入戒斷期
                     </p>
