@@ -9,6 +9,7 @@ import {
   Star,
   UserIcon,
 } from "lucide-react";
+import React from "react";
 import { FaInstagram, FaDiscord, FaGithub } from "react-icons/fa";
 import { SiOsu } from "react-icons/si";
 
