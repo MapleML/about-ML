@@ -1,3 +1,5 @@
+"use client";
+
 import Image from "next/image";
 import React from "react";
 
@@ -8,23 +10,26 @@ import TypeWriter from "../TypeWriter";
 const Avatar: React.FC = () => (
   <div className="relative aspect-square w-56 sm:w-72 md:w-80 lg:w-96">
     <div className="group relative size-full">
-      <div className="relative size-full overflow-hidden rounded-full bg-neutral-50/30 shadow-lg backdrop-blur-sm">
+      <div className="relative size-full overflow-hidden rounded-full bg-white/50 backdrop-blur-sm">
         <Image
           src="/Images/HeroAvatar.jpg"
           alt="Hero Avatar"
           width={400}
           height={400}
+          quality={90}
+          priority
+          sizes="(min-width: 1024px) 384px, (min-width: 768px) 320px, (min-width: 640px) 288px, 224px"
+          className="size-full object-cover opacity-0 transition-opacity duration-300"
+          onLoadingComplete={(image) => image.classList.remove("opacity-0")}
           placeholder="blur"
           blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRg..."
-          className="size-full object-cover"
-          loading="eager"
         />
       </div>
 
-      {/* 使用自定義的配色方案來裝飾圓圈 */}
-      <div className="absolute -right-3 -top-3 size-10 rounded-full bg-primary-400 shadow-lg sm:-right-5 sm:-top-5 sm:size-12 lg:size-14" />
-      <div className="absolute -right-5 top-10 size-8 rounded-full bg-secondary-400 shadow-lg sm:-right-7 sm:top-12 sm:size-10 lg:size-12" />
-      <div className="absolute -bottom-2 -left-2 size-9 rounded-full bg-accent-400 shadow-lg sm:-bottom-2 sm:-left-2 sm:size-11" />
+      {/* 裝飾圓圈 */}
+      <div className="absolute -right-3 -top-3 size-10 rounded-full bg-primary-400/90 sm:-right-5 sm:-top-5 sm:size-12 lg:size-14" />
+      <div className="absolute -right-5 top-10 size-8 rounded-full bg-secondary-400/90 sm:-right-7 sm:top-12 sm:size-10 lg:size-12" />
+      <div className="absolute -bottom-2 -left-2 size-9 rounded-full bg-accent-400/90 sm:-bottom-2 sm:-left-2 sm:size-11" />
     </div>
   </div>
 );
@@ -36,7 +41,9 @@ const InterestTags: React.FC = () => (
       return (
         <span
           key={index}
-          className="flex items-center rounded-2xl bg-neutral-50/60 px-4 py-2 text-base backdrop-blur-md transition-colors duration-200  sm:text-lg"
+          className="flex items-center rounded-2xl bg-white/50 px-4 py-2 text-base backdrop-blur-sm sm:text-lg"
+          role="status"
+          aria-label={`Interest: ${item.text}`}
         >
           <Icon className={`mr-2 size-5 sm:size-6 ${item.iconColor}`} />
           <span className={item.textColor}>{item.text}</span>
@@ -61,9 +68,9 @@ const SocialLinks: React.FC = () => (
             item.ariaLabel || `Visit my ${item.href.split("/").slice(-1)[0]}`
           }
         >
-          <div className="relative flex size-14 items-center justify-center rounded-full bg-neutral-50/60 p-2 backdrop-blur-sm transition-all duration-200 ease-in-out hover:bg-neutral-100/80">
+          <div className="relative flex size-14 items-center justify-center rounded-full bg-white/50 p-2 backdrop-blur-sm transition-colors duration-200 hover:bg-white">
             <Icon
-              className={`size-6 transition-transform duration-200 ease-in-out group-hover:rotate-3 group-hover:scale-110 ${item.className
+              className={`size-6 ${item.className
                 .split(" ")
                 .filter((cls) => !cls.includes("w-") && !cls.includes("h-"))
                 .join(" ")}`}
@@ -78,7 +85,7 @@ const SocialLinks: React.FC = () => (
 
 const SelfIntroduction: React.FC = () => (
   <div className="relative">
-    <div className="rounded-2xl  bg-neutral-50/60 p-6 backdrop-blur-md">
+    <div className="rounded-2xl bg-white/50 p-6 backdrop-blur-sm">
       <p className="text-center text-base leading-relaxed text-neutral-700 sm:text-lg lg:text-left">
         目前是個五專資工學生，我最喜歡寫程式、玩遊戲、看動漫、聽音樂
         只想要過平靜的生活，因為我是個 Chill Guy
@@ -89,7 +96,14 @@ const SelfIntroduction: React.FC = () => (
 
 export default function Hero() {
   return (
-    <section id="home" className="min-h-screen">
+    <section id="home" className="relative min-h-screen overflow-hidden">
+      {/* 添加背景裝飾 */}
+      <div className="pointer-events-none absolute inset-0 -z-10">
+        <div className="absolute -left-1/4 top-1/4 size-96 rounded-full bg-primary-200/20 blur-3xl" />
+        <div className="absolute -right-1/4 top-1/2 size-96 rounded-full bg-secondary-200/20 blur-3xl" />
+        <div className="absolute bottom-1/4 left-1/2 size-96 -translate-x-1/2 rounded-full bg-accent-200/20 blur-3xl" />
+      </div>
+
       <div className="relative flex min-h-screen items-center justify-center px-4 pb-12 pt-24 sm:px-6 lg:px-8">
         <div className="mx-auto w-full max-w-7xl">
           <div className="grid items-center gap-8 md:gap-12 lg:grid-cols-2 lg:gap-16">

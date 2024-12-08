@@ -7,34 +7,35 @@ interface TypeWriterProps {
   speed?: number;
 }
 
-const TypeWriter: React.FC<TypeWriterProps> = ({ words = [], speed = 100 }) => {
-  const [currentWordIndex, setCurrentWordIndex] = useState<number>(0);
-  const [currentText, setCurrentText] = useState<string>("");
-  const [isDeleting, setIsDeleting] = useState<boolean>(false);
+export default function TypeWriter({ words, speed = 100 }: TypeWriterProps) {
+  const [currentWordIndex, setCurrentWordIndex] = useState(0);
+  const [currentText, setCurrentText] = useState("");
+  const [isDeleting, setIsDeleting] = useState(false);
 
   useEffect(() => {
-    const word: string = words[currentWordIndex] || "";
-    const timeout = setTimeout(() => {
-      if (!isDeleting) {
-        if (currentText !== word) {
-          setCurrentText(word.slice(0, currentText.length + 1));
+    const word = words[currentWordIndex];
+    const timeout = setTimeout(
+      () => {
+        if (!isDeleting) {
+          if (currentText !== word) {
+            setCurrentText(word.slice(0, currentText.length + 1));
+          } else {
+            setTimeout(() => setIsDeleting(true), 1000);
+          }
         } else {
-          setTimeout(() => setIsDeleting(true), 1500);
+          if (currentText === "") {
+            setIsDeleting(false);
+            setCurrentWordIndex((prev) => (prev + 1) % words.length);
+          } else {
+            setCurrentText(word.slice(0, currentText.length - 1));
+          }
         }
-      } else {
-        if (currentText === "") {
-          setIsDeleting(false);
-          setCurrentWordIndex((prev) => (prev + 1) % words.length);
-        } else {
-          setCurrentText(word.slice(0, currentText.length - 1));
-        }
-      }
-    }, speed);
+      },
+      isDeleting ? speed / 2 : speed
+    );
 
     return () => clearTimeout(timeout);
-  }, [currentText, isDeleting, currentWordIndex, words, speed]);
+  }, [currentText, currentWordIndex, isDeleting, speed, words]);
 
-  return <span>{currentText || "\u00A0"}</span>;
-};
-
-export default TypeWriter;
+  return <span className="text-neutral-600">{currentText}</span>;
+}

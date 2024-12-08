@@ -78,17 +78,22 @@ export default function NavBar() {
   }, []);
 
   const throttleScroll = useCallback(() => {
-    let isThrottled = false;
+    let ticking = false;
+    let rafId: number;
 
     return () => {
-      if (!isThrottled) {
-        isThrottled = true;
-        handleScroll();
-
-        setTimeout(() => {
-          isThrottled = false;
-        }, 150);
+      if (!ticking) {
+        rafId = window.requestAnimationFrame(() => {
+          handleScroll();
+          ticking = false;
+        });
+        ticking = true;
       }
+      return () => {
+        if (rafId) {
+          window.cancelAnimationFrame(rafId);
+        }
+      };
     };
   }, [handleScroll]);
 
@@ -117,10 +122,12 @@ export default function NavBar() {
   }, []);
 
   useEffect(() => {
+    const throttledScroll = throttleScroll();
     lastScrollY.current = window.scrollY;
-    window.addEventListener("scroll", throttleScroll(), { passive: true });
+    window.addEventListener("scroll", throttledScroll, { passive: true });
+
     return () => {
-      window.removeEventListener("scroll", throttleScroll());
+      window.removeEventListener("scroll", throttledScroll);
       if (buttonScrollTimeout.current) {
         clearTimeout(buttonScrollTimeout.current);
       }
@@ -132,11 +139,15 @@ export default function NavBar() {
       className={`
         fixed inset-x-0 top-0 z-50 
         transition-all duration-150 ease-out
-        ${isVisible ? "translate-y-0 opacity-100" : "-translate-y-full opacity-0"}
+        ${
+          isVisible
+            ? "translate-y-0 opacity-100"
+            : "-translate-y-full opacity-0"
+        }
       `}
     >
       <nav className="flex items-center justify-center p-4">
-        <div className="flex items-center gap-2 rounded-full border border-neutral-200/40 bg-neutral-50/70 p-2 shadow-lg backdrop-blur-md transition-colors duration-150 md:gap-2 md:px-4 md:py-3">
+        <div className="flex items-center gap-2 rounded-full bg-white/50 p-2 backdrop-blur-sm md:gap-2 md:px-4 md:py-3">
           {navItems.map((item, index) => {
             const scheme = getColorScheme(index);
             return (

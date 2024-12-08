@@ -1,34 +1,27 @@
 "use client";
 
-import {
-  Code,
-  GamepadIcon,
-  HeartIcon,
-  MessageCircle,
-  Star,
-  TvIcon,
-  UserIcon,
-} from "lucide-react";
+import { Code, GamepadIcon, MessageCircle, Star, TvIcon } from "lucide-react";
 import Image from "next/image";
 import React, { useState } from "react";
 
-import { socialLinks } from "@/constants";
+import {
+  socialLinks,
+  cardStyles,
+  AboutTab,
+  personalityInfo,
+  aboutTags,
+  aboutTabs,
+} from "@/constants";
 
-interface TabItem {
-  id: "personality" | "interests" | "notice";
-  label: string;
-  icon: React.ElementType;
+interface TagProps {
+  text: string;
+  variant: "primary" | "secondary" | "accent";
 }
 
 interface InfoCardProps {
   icon: React.ElementType;
   title: string;
   children: React.ReactNode;
-}
-
-interface TagProps {
-  text: string;
-  variant: "primary" | "secondary" | "accent";
 }
 
 const Tag = ({ text, variant }: TagProps) => {
@@ -54,20 +47,9 @@ const Tag = ({ text, variant }: TagProps) => {
 
 const InfoCard = ({ icon: Icon, title, children }: InfoCardProps) => {
   return (
-    <div
-      className="
-        rounded-xl 
-        border border-accent-100/20
-        bg-white/40 p-6 
-        shadow-[0_8px_30px_rgb(0,0,0,0.06)]
-        backdrop-blur-md
-        transition-all
-        hover:bg-white/50
-        hover:shadow-[0_8px_30px_rgb(0,0,0,0.08)]
-      "
-    >
+    <div className={cardStyles.default.base}>
       <div className="mb-4 flex items-center gap-3">
-        <div className="rounded-lg bg-accent-100/50 p-3 backdrop-blur-sm">
+        <div className="rounded-lg bg-accent-100/50 p-3">
           <Icon className="size-5 text-accent-300" />
         </div>
         <h3 className="text-lg font-semibold text-accent-300">{title}</h3>
@@ -92,9 +74,11 @@ const SocialLinks: React.FC = () => (
             item.ariaLabel || `Visit my ${item.href.split("/").slice(-1)[0]}`
           }
         >
-          <div className="relative flex size-12 items-center justify-center rounded-full bg-neutral-50/60 p-2 backdrop-blur-sm transition-all duration-200 ease-in-out hover:bg-neutral-100/80">
+          <div
+            className={`${cardStyles.social.base} ${cardStyles.social.hover}`}
+          >
             <Icon
-              className={`size-5 transition-transform duration-200 ease-in-out group-hover:rotate-3 group-hover:scale-110 ${item.className
+              className={`size-5 ${item.className
                 .split(" ")
                 .filter((cls) => !cls.includes("w-") && !cls.includes("h-"))
                 .join(" ")}`}
@@ -108,13 +92,7 @@ const SocialLinks: React.FC = () => (
 );
 
 export default function About() {
-  const [activeTab, setActiveTab] = useState<TabItem["id"]>("personality");
-
-  const tabs: TabItem[] = [
-    { id: "personality", label: "性格特質", icon: UserIcon },
-    { id: "interests", label: "興趣愛好", icon: HeartIcon },
-    { id: "notice", label: "雷點注意", icon: Star },
-  ];
+  const [activeTab, setActiveTab] = useState<AboutTab["id"]>("personality");
 
   return (
     <section
@@ -157,7 +135,7 @@ export default function About() {
                   placeholder="blur"
                   blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRg..."
                   className="size-full object-cover"
-                  loading="eager"
+                  loading="lazy"
                 />
               </div>
               <SocialLinks />
@@ -170,10 +148,9 @@ export default function About() {
                   About Me!
                 </h2>
                 <div className="flex flex-wrap justify-center gap-2 md:justify-start">
-                  <Tag text="🌟 16歲" variant="primary" />
-                  <Tag text="🎮 遊戲開發愛好者" variant="secondary" />
-                  <Tag text="📺 動漫宅" variant="accent" />
-                  <Tag text="🌐 中/英文交流" variant="primary" />
+                  {aboutTags.map((tag, index) => (
+                    <Tag key={index} {...tag} />
+                  ))}
                 </div>
               </div>
               <div className="prose prose-neutral mx-auto max-w-none md:mx-0">
@@ -198,7 +175,7 @@ export default function About() {
             shadow-sm backdrop-blur-md
           "
           >
-            {tabs.map((tab, index) => {
+            {aboutTabs.map((tab, index) => {
               const Icon = tab.icon;
               const isActive = activeTab === tab.id;
               const activeColors = [
@@ -235,21 +212,24 @@ export default function About() {
         <div className="grid w-full gap-6">
           {activeTab === "personality" && (
             <div className="grid gap-6 sm:grid-cols-2">
-              <InfoCard icon={MessageCircle} title="溝通風格">
+              <InfoCard
+                icon={personalityInfo.communication.icon}
+                title={personalityInfo.communication.title}
+              >
                 <div className="space-y-3 text-neutral-600">
-                  <p>• 喜歡用顏文字和注音符號 (｀・ω・´)</p>
-                  <p>• 說話風格直白，經常講幹話發幹文</p>
-                  <p>• 討論喜歡的話題會特別興奮</p>
+                  {personalityInfo.communication.points.map((point, index) => (
+                    <p key={index}>• {point}</p>
+                  ))}
                 </div>
               </InfoCard>
-
-              <InfoCard icon={Star} title="個性特點">
+              <InfoCard
+                icon={personalityInfo.personality.icon}
+                title={personalityInfo.personality.title}
+              >
                 <div className="space-y-3 text-neutral-600">
-                  <p>• 對喜歡的事物會非常投入</p>
-                  <p>• 熱愛學習新技術和知識</p>
-                  <p>• 偶爾會陷入自己的世界</p>
-                  <p>• 討論動漫或技術時會特別興奮</p>
-                  <p>• 對不熟的人比較害羞 (在現實生活中)</p>
+                  {personalityInfo.personality.points.map((point, index) => (
+                    <p key={index}>• {point}</p>
+                  ))}
                 </div>
               </InfoCard>
             </div>
@@ -272,7 +252,7 @@ export default function About() {
                       追番習慣
                     </h4>
                     <p className="text-justify text-neutral-600">
-                      動畫瘋/YT/Netflix 不喜歡去追熱門動畫 {"(除非真的很喜歡)"}
+                      動畫瘋/YT/Netflix 不喜��去追熱門動畫 {"(除非真的很喜歡)"}
                       會熱度過才開始補，喜歡一次追完，但喜歡的作品又會捨不得看完
                       {"("}有點矛盾? 每看完一個自認為的神作就會陷入戒斷期
                     </p>
@@ -295,7 +275,7 @@ export default function About() {
                     <h4 className="mb-2 font-medium text-accent-300">技能</h4>
                     <p className="text-justify text-neutral-600">
                       專精於 Roblox Studio
-                      開發，主要專注於前後端整合、使用者介面設計與遊戲邏輯實作。具備完整的遊戲腳本開發經驗
+                      開發，主要專注於前後端整合、使用者介面設計與遊戲邏輯實作。具備��整的遊戲腳本開發經驗
                     </p>
                   </div>
                 </div>

@@ -27,9 +27,9 @@ export default function Footer() {
                   className="group"
                   aria-label={item.ariaLabel}
                 >
-                  <div className="relative flex size-10 items-center justify-center rounded-full bg-white/50 p-2 backdrop-blur-sm transition-all duration-200 ease-in-out hover:bg-white">
+                  <div className="relative flex size-10 items-center justify-center rounded-full bg-white/50 p-2 backdrop-blur-sm transition-colors duration-200 hover:bg-white">
                     <Icon
-                      className={`size-5 transition-transform duration-200 ease-in-out group-hover:rotate-3 group-hover:scale-110 ${item.className}`}
+                      className={`size-5 ${item.className}`}
                       aria-hidden="true"
                     />
                   </div>
