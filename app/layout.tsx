@@ -13,7 +13,6 @@ export const metadata: Metadata = {
     title: "small R",
     description: "一位熱愛寫程式、玩遊戲、看動漫的五專生",
     siteName: "small R",
-    locale: "zh_TW",
     type: "website",
   },
 };
@@ -24,23 +23,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="zh-TW" className={`scroll-smooth`}>
-      <head>
-        <link
-          rel="preload"
-          href="/Images/HeroAvatar.jpg"
-          as="image"
-          type="image/jpeg"
-          fetchPriority="high"
-        />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link
-          rel="preconnect"
-          href="https://fonts.gstatic.com"
-          crossOrigin="anonymous"
-        />
-      </head>
-      <body className="relative min-h-screen">
+    <html lang="zh-TW">
+      <body>
         <BackgroundGradient />
         <NavBar />
         <main>{children}</main>
