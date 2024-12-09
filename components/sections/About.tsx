@@ -249,7 +249,7 @@ export default function About() {
                       追番習慣
                     </h4>
                     <p className="text-justify text-neutral-600">
-                      動畫瘋/YT/Netflix 不喜��去追熱門動畫 {"(除非真的很喜歡)"}
+                      動畫瘋/YT/Netflix 不喜歡去追熱門動畫 {"(除非真的很喜歡)"}
                       會熱度過才開始補，喜歡一次追完，但喜歡的作品又會捨不得看完
                       {"("}有點矛盾? 每看完一個自認為的神作就會陷入戒斷期
                     </p>
@@ -272,7 +272,7 @@ export default function About() {
                     <h4 className="mb-2 font-medium text-accent-300">技能</h4>
                     <p className="text-justify text-neutral-600">
                       專精於 Roblox Studio
-                      開發，主要專注於前後端整合、使用者介面設計與遊戲邏輯實作。具備��整的遊戲腳本開發經驗
+                      開發，主要專注於前後端整合、使用者介面設計與遊戲邏輯實作。具備完整的遊戲腳本開發經驗
                     </p>
                   </div>
                 </div>
