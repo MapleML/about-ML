@@ -14,15 +14,9 @@ const Avatar: React.FC = () => (
         <Image
           src="/Images/HeroAvatar.jpg"
           alt="Hero Avatar"
-          width={400}
+          width={1920}
           height={400}
-          quality={90}
-          priority
-          sizes="(min-width: 1024px) 384px, (min-width: 768px) 320px, (min-width: 640px) 288px, 224px"
-          className="size-full object-cover opacity-0 transition-opacity duration-300"
-          onLoadingComplete={(image) => image.classList.remove("opacity-0")}
-          placeholder="blur"
-          blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRg..."
+          className="size-full object-cover"
         />
       </div>
 

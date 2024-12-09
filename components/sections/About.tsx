@@ -132,10 +132,7 @@ export default function About() {
                   alt="Hero Avatar"
                   width={400}
                   height={400}
-                  placeholder="blur"
-                  blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRg..."
                   className="size-full object-cover"
-                  loading="lazy"
                 />
               </div>
               <SocialLinks />
