@@ -32,12 +32,12 @@ export const navItems = [
     label: "動漫天地",
     id: "anime",
   },
-  /* {
+  {
     icon: Code,
     size: 20,
     label: "程式天地",
     id: "code",
-  }, */
+  },
 ];
 
 export const socialLinks = [
