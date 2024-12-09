@@ -1,7 +1,7 @@
 // components/sections/Code.tsx
 "use client";
 
-import { FaGithub, FaGlobe } from "react-icons/fa";
+import { FaGithub } from "react-icons/fa";
 import {
   SiNextdotjs,
   SiReact,
@@ -41,12 +41,7 @@ export default function Code() {
         {
           icon: <FaGithub className="size-4" />,
           label: "Source",
-          href: "https://github.com/yourusername/portfolio",
-        },
-        {
-          icon: <FaGlobe className="size-4" />,
-          label: "Live",
-          href: "https://your-portfolio.com",
+          href: "https://github.com/Ynoob87/about-small",
         },
       ],
     },
