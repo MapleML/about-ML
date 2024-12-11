@@ -49,5 +49,4 @@ pnpm install
 
 ```bash
 npm run dev
-#
 ```
