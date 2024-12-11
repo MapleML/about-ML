@@ -11,6 +11,7 @@ import {
   personalityInfo,
   aboutTags,
 } from "@/constants";
+import { cn } from "@/lib/utils";
 import { AboutTab } from "@/types";
 
 interface TagProps {
@@ -77,13 +78,7 @@ const SocialLinks: React.FC = () => (
           <div
             className={`${cardStyles.social.base} ${cardStyles.social.hover}`}
           >
-            <Icon
-              className={`size-5 ${(item.className || "")
-                .split(" ")
-                .filter((cls) => !cls.includes("w-") && !cls.includes("h-"))
-                .join(" ")}`}
-              aria-hidden="true"
-            />
+            <Icon className={cn("size-5", item.className)} aria-hidden="true" />
           </div>
         </a>
       );
@@ -234,7 +229,7 @@ export default function About() {
 
           {activeTab === "interests" && (
             <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-              <InfoCard icon={TvIcon} title="動漫愛好">
+              <InfoCard icon={TvIcon} title="動漫愛��">
                 <div className="space-y-4">
                   <div className="rounded-lg bg-white/30 p-3 backdrop-blur-sm">
                     <h4 className="mb-2 font-medium text-accent-300">

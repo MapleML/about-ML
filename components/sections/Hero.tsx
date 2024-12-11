@@ -4,6 +4,7 @@ import Image from "next/image";
 import React from "react";
 
 import { commandAnimations, interestTags, socialLinks } from "@/constants";
+import { cn } from "@/lib/utils";
 
 import TypeWriter from "../TypeWriter";
 
@@ -63,13 +64,7 @@ const SocialLinks: React.FC = () => (
           }
         >
           <div className="relative flex size-14 items-center justify-center rounded-full bg-white/50 p-2 backdrop-blur-sm transition-colors duration-200 hover:bg-white">
-            <Icon
-              className={`size-6 ${item.className
-                .split(" ")
-                .filter((cls) => !cls.includes("w-") && !cls.includes("h-"))
-                .join(" ")}`}
-              aria-hidden="true"
-            />
+            <Icon className={cn("size-6", item.className)} aria-hidden="true" />
           </div>
         </a>
       );
