@@ -7,11 +7,11 @@ import React, { useState } from "react";
 import {
   socialLinks,
   cardStyles,
-  AboutTab,
+  aboutTabs,
   personalityInfo,
   aboutTags,
-  aboutTabs,
 } from "@/constants";
+import { AboutTab } from "@/types";
 
 interface TagProps {
   text: string;
@@ -78,7 +78,7 @@ const SocialLinks: React.FC = () => (
             className={`${cardStyles.social.base} ${cardStyles.social.hover}`}
           >
             <Icon
-              className={`size-5 ${item.className
+              className={`size-5 ${(item.className || "")
                 .split(" ")
                 .filter((cls) => !cls.includes("w-") && !cls.includes("h-"))
                 .join(" ")}`}
@@ -301,7 +301,7 @@ export default function About() {
 
           {activeTab === "notice" && (
             <div className="grid gap-6 sm:grid-cols-2">
-              <InfoCard icon={MessageCircle} title="我的雷點">
+              <InfoCard icon={MessageCircle} title="我的點">
                 <div className="space-y-3 text-neutral-600">
                   <p>• 不尊重我的朋友</p>
                   <p>• 好像就沒其他的了?</p>
