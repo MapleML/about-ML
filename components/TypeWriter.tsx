@@ -1,6 +1,7 @@
 "use client";
 
-import { useEffect, useState, useCallback, useRef } from "react";
+import React, { useCallback, useEffect, useRef, useState } from "react";
+
 import type { TypeWriterProps } from "@/types";
 
 export default function TypeWriter({
@@ -14,7 +15,7 @@ export default function TypeWriter({
   const [wordIndex, setWordIndex] = useState(0);
   const [cursorVisible, setCursorVisible] = useState(true);
 
-  const timeoutRef = useRef<NodeJS.Timeout>();
+  const timeoutRef = useRef<ReturnType<typeof setTimeout>>();
   const currentWord = words[wordIndex];
 
   // 游標閃爍效果
@@ -41,16 +42,15 @@ export default function TypeWriter({
           timeoutRef.current = setTimeout(() => {
             setIsDeleting(true);
           }, delayAfterWord);
-          return;
         }
       } else {
         // 刪除中
         if (currentText === "") {
           setIsDeleting(false);
           setWordIndex((prev) => (prev + 1) % words.length);
-          return;
+        } else {
+          setCurrentText(currentText.slice(0, currentText.length - 1));
         }
-        setCurrentText(currentText.slice(0, currentText.length - 1));
       }
     };
 
