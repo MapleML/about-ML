@@ -229,7 +229,7 @@ export default function About() {
 
           {activeTab === "interests" && (
             <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-              <InfoCard icon={TvIcon} title="動漫愛��">
+              <InfoCard icon={TvIcon} title="動漫偏好">
                 <div className="space-y-4">
                   <div className="rounded-lg bg-white/30 p-3 backdrop-blur-sm">
                     <h4 className="mb-2 font-medium text-accent-300">
@@ -296,7 +296,7 @@ export default function About() {
 
           {activeTab === "notice" && (
             <div className="grid gap-6 sm:grid-cols-2">
-              <InfoCard icon={MessageCircle} title="我的點">
+              <InfoCard icon={MessageCircle} title="我的雷點">
                 <div className="space-y-3 text-neutral-600">
                   <p>• 不尊重我的朋友</p>
                   <p>• 好像就沒其他的了?</p>
