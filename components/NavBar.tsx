@@ -16,28 +16,25 @@ export default function NavBar() {
 
   const colorSchemes = [
     {
-      // primary 色系（原藍色）
       text: "text-primary-500",
-      bg: "bg-primary-50",
-      border: "border-primary-200",
-      hover: "hover:text-primary-400",
-      glow: "bg-primary-200",
+      bg: "bg-primary-50/90",
+      border: "border-primary-100",
+      glow: "bg-primary-200/20",
+      activeGlow: "bg-primary-200/30",
     },
     {
-      // secondary 色系（原琥珀色）
       text: "text-secondary-600",
-      bg: "bg-secondary-50",
-      border: "border-secondary-200",
-      hover: "hover:text-secondary-400",
-      glow: "bg-secondary-200",
+      bg: "bg-secondary-50/90",
+      border: "border-secondary-100",
+      glow: "bg-secondary-200/20",
+      activeGlow: "bg-secondary-200/30",
     },
     {
-      // accent 色系（原粉色）
       text: "text-accent-500",
-      bg: "bg-accent-50",
-      border: "border-accent-200",
-      hover: "hover:text-accent-400",
-      glow: "bg-accent-200",
+      bg: "bg-accent-50/90",
+      border: "border-accent-100",
+      glow: "bg-accent-200/20",
+      activeGlow: "bg-accent-200/30",
     },
   ];
 
@@ -138,7 +135,7 @@ export default function NavBar() {
     <header
       className={`
         fixed inset-x-0 top-0 z-50 
-        transition-all duration-150 ease-out
+        transition-all duration-200 ease-out
         ${
           isVisible
             ? "translate-y-0 opacity-100"
@@ -147,9 +144,19 @@ export default function NavBar() {
       `}
     >
       <nav className="flex items-center justify-center p-4">
-        <div className="flex items-center gap-2 rounded-full bg-white/50 p-2 backdrop-blur-sm md:gap-2 md:px-4 md:py-3">
+        <div
+          className="
+            flex items-center gap-1.5 rounded-full 
+            border border-white/20
+            bg-white/60 p-1.5
+            shadow-lg backdrop-blur-md
+            md:gap-2 md:px-3 md:py-2
+          "
+        >
           {navItems.map((item, index) => {
             const scheme = getColorScheme(index);
+            const isActive = activeItem === index;
+
             return (
               <button
                 key={item.id}
@@ -159,45 +166,54 @@ export default function NavBar() {
                   setIsVisible(true);
                 }}
                 className={`
-                  group relative flex items-center gap-1
-                  rounded-full px-2 py-1.5 
-                  transition-colors duration-150 ease-out
-                  md:gap-2 md:px-5 md:py-2
+                  group relative flex items-center gap-1.5
+                  rounded-full px-3 py-1.5
+                  transition-all duration-200 ease-out
+                  md:gap-2 md:px-4 md:py-2
                   ${
-                    activeItem === index
-                      ? `${scheme.text} ${scheme.bg} ${scheme.border}`
-                      : `text-neutral-500 hover:bg-neutral-50/80 ${scheme.hover}`
+                    isActive
+                      ? `${scheme.text} ${scheme.bg} ${scheme.border} shadow-sm`
+                      : "text-neutral-600 hover:bg-white/80"
                   }
                 `}
                 aria-label={item.label}
               >
-                {activeItem === index && (
-                  <div
-                    className={`absolute inset-0 -z-10 rounded-full opacity-30 blur-sm ${scheme.glow}`}
-                  />
+                {isActive && (
+                  <>
+                    <div
+                      className={`
+                      absolute inset-0 -z-10 rounded-full blur-md
+                      ${scheme.activeGlow}
+                    `}
+                    />
+                    <div
+                      className={`
+                      absolute inset-0 -z-10 rounded-full opacity-50
+                      ${scheme.glow}
+                    `}
+                    />
+                  </>
                 )}
 
                 <div
-                  className="relative transition-transform duration-150 ease-out 
-                  group-hover:scale-105"
+                  className={`
+                  relative transition-transform duration-200
+                  ${isActive ? "scale-110" : "group-hover:scale-105"}
+                `}
                 >
-                  <item.icon size={item.size} />
+                  <item.icon
+                    size={item.size}
+                    className={isActive ? "drop-shadow-sm" : ""}
+                  />
                 </div>
 
-                <span className="relative hidden text-sm font-medium md:inline-block">
+                <span
+                  className="
+                  relative hidden text-sm font-medium 
+                  tracking-wide md:inline-block
+                "
+                >
                   {item.label}
-                  <span
-                    className={`
-                      absolute inset-x-0 -bottom-1 h-0.5
-                      transition-transform duration-150 ease-out
-                      ${scheme.glow}
-                      ${
-                        activeItem === index
-                          ? "scale-x-100"
-                          : "scale-x-0 group-hover:scale-x-75"
-                      }
-                    `}
-                  />
                 </span>
               </button>
             );

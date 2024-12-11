@@ -21,25 +21,29 @@ export default function Code() {
       imageAlt: "Portfolio Website Preview",
       techStack: [
         {
-          icon: <SiNextdotjs className="size-4" />,
+          icon: SiNextdotjs,
           label: "Next.js",
+          color: "#000000",
         },
         {
-          icon: <SiReact className="size-4 text-[#61DAFB]" />,
+          icon: SiReact,
           label: "React",
+          color: "#61DAFB",
         },
         {
-          icon: <SiTypescript className="size-4 text-[#3178C6]" />,
+          icon: SiTypescript,
           label: "TypeScript",
+          color: "#3178C6",
         },
         {
-          icon: <SiTailwindcss className="size-4 text-[#06B6D4]" />,
+          icon: SiTailwindcss,
           label: "Tailwind CSS",
+          color: "#06B6D4",
         },
       ],
       actions: [
         {
-          icon: <FaGithub className="size-4" />,
+          icon: FaGithub,
           label: "Source",
           href: "https://github.com/Ynoob87/about-small",
         },
@@ -48,18 +52,20 @@ export default function Code() {
   ];
 
   return (
-    <section id="code" className="min-h-screen">
+    <section id="code" className="min-h-screen py-20">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="mb-16 text-center">
-          <h2 className="mb-4 text-4xl font-bold text-gray-900">程式天地</h2>
-          <p className="mx-auto max-w-2xl text-lg text-gray-600">
+          <h2 className="mb-4 bg-gradient-to-r from-primary-500 to-accent-500 bg-clip-text font-serif text-4xl font-bold text-transparent">
+            程式天地
+          </h2>
+          <p className="mx-auto max-w-2xl text-lg text-neutral-600">
             展示一些我最近做的程式和項目
           </p>
         </div>
 
         <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
           {projects.map((project, index) => (
-            <div key={index}>
+            <div key={index} className="group">
               <PreviewCard {...project} />
             </div>
           ))}

@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 
-import { animeData } from "@/constants";
+import { animeList as animeData } from "@/constants";
 
 type AnimeStatus = "watched" | "watching";
 

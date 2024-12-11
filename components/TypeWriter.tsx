@@ -1,41 +1,91 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import { useEffect, useState, useCallback, useRef } from "react";
+import type { TypeWriterProps } from "@/types";
 
-interface TypeWriterProps {
-  words: string[];
-  speed?: number;
-}
-
-export default function TypeWriter({ words, speed = 100 }: TypeWriterProps) {
-  const [currentWordIndex, setCurrentWordIndex] = useState(0);
+export default function TypeWriter({
+  words,
+  speed = 100,
+  delayAfterWord = 1000,
+  cursorCharacter = "▋",
+}: TypeWriterProps) {
   const [currentText, setCurrentText] = useState("");
   const [isDeleting, setIsDeleting] = useState(false);
+  const [wordIndex, setWordIndex] = useState(0);
+  const [cursorVisible, setCursorVisible] = useState(true);
 
+  const timeoutRef = useRef<NodeJS.Timeout>();
+  const currentWord = words[wordIndex];
+
+  // 游標閃爍效果
   useEffect(() => {
-    const word = words[currentWordIndex];
-    const timeout = setTimeout(
-      () => {
-        if (!isDeleting) {
-          if (currentText !== word) {
-            setCurrentText(word.slice(0, currentText.length + 1));
-          } else {
-            setTimeout(() => setIsDeleting(true), 1000);
-          }
+    const cursorInterval = setInterval(() => {
+      setCursorVisible((prev) => !prev);
+    }, 530);
+
+    return () => clearInterval(cursorInterval);
+  }, []);
+
+  const typeNextCharacter = useCallback(() => {
+    if (timeoutRef.current) {
+      clearTimeout(timeoutRef.current);
+    }
+
+    const handleTyping = () => {
+      if (!isDeleting) {
+        // 打字中
+        if (currentText !== currentWord) {
+          setCurrentText(currentWord.slice(0, currentText.length + 1));
         } else {
-          if (currentText === "") {
-            setIsDeleting(false);
-            setCurrentWordIndex((prev) => (prev + 1) % words.length);
-          } else {
-            setCurrentText(word.slice(0, currentText.length - 1));
-          }
+          // 完成打字，等待刪除
+          timeoutRef.current = setTimeout(() => {
+            setIsDeleting(true);
+          }, delayAfterWord);
+          return;
         }
-      },
+      } else {
+        // 刪除中
+        if (currentText === "") {
+          setIsDeleting(false);
+          setWordIndex((prev) => (prev + 1) % words.length);
+          return;
+        }
+        setCurrentText(currentText.slice(0, currentText.length - 1));
+      }
+    };
+
+    timeoutRef.current = setTimeout(
+      handleTyping,
       isDeleting ? speed / 2 : speed
     );
+  }, [
+    currentText,
+    currentWord,
+    delayAfterWord,
+    isDeleting,
+    speed,
+    words.length,
+  ]);
 
-    return () => clearTimeout(timeout);
-  }, [currentText, currentWordIndex, isDeleting, speed, words]);
+  useEffect(() => {
+    typeNextCharacter();
+    return () => {
+      if (timeoutRef.current) {
+        clearTimeout(timeoutRef.current);
+      }
+    };
+  }, [typeNextCharacter]);
 
-  return <span className="text-neutral-600">{currentText}</span>;
+  return (
+    <span className="font-mono">
+      {currentText}
+      <span
+        className={`inline-block transition-opacity duration-100 ${
+          cursorVisible ? "opacity-100" : "opacity-0"
+        }`}
+      >
+        {cursorCharacter}
+      </span>
+    </span>
+  );
 }
