@@ -53,7 +53,7 @@
 1. 克隆專案
 
 ```bash
-git clone https://github.com/Ynoob87/portfolio.git
+git clone https://github.com/Ynoob87/about-small
 ```
 
 2. 安裝依賴
