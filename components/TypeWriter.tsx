@@ -15,7 +15,7 @@ export default function TypeWriter({
   const [wordIndex, setWordIndex] = useState(0);
   const [cursorVisible, setCursorVisible] = useState(true);
 
-  const timeoutRef = useRef<ReturnType<typeof setTimeout>>();
+  const timeoutRef = useRef<ReturnType<typeof setTimeout>>(null);
   const currentWord = words[wordIndex];
 
   // 游標閃爍效果
