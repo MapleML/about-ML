@@ -187,7 +187,7 @@ export const animeList: Record<string, AnimeItem[]> = {
       status: "watched",
     },
     {
-      title: "轉生公與天才千金的魔法革命",
+      title: "轉生公主與天才千金的魔法革命",
       rating: 5,
       comment: "",
       status: "watched",
@@ -222,10 +222,10 @@ export const animeList: Record<string, AnimeItem[]> = {
 };
 
 /**
- * 定義卡片樣式的介面
+ * 定義卡片樣式的接口
  * @interface CardStyle
- * @property {string} base - 基礎樣式類名
- * @property {string} [hover] - 懸停樣式類名（可選）
+ * @property {string} base - 基本樣式類名
+ * @property {string} [hover] - 滑鼠懸停樣式類名（可選）
  */
 export interface CardStyle {
   base: string;
@@ -272,7 +272,7 @@ export const personalityInfo = {
 };
 
 export const aboutTags = [
-  { text: "16歲", variant: "primary" as const },
+  { text: "16 🌱", variant: "primary" as const },
   { text: "🎮 遊戲開發愛好者", variant: "secondary" as const },
   { text: "📺 動漫宅", variant: "accent" as const },
   { text: "🌐 中/英文交流", variant: "primary" as const },
