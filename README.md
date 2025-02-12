@@ -112,21 +112,21 @@ about-me/
 - 動態打字效果
 - 頁面切換動畫
 
-## 🤝 貢獻指南
-
-歡迎提交 Pull Request 或創建 Issue！
-
-1. Fork 本專案
-2. 創建您的特性分支 (`git checkout -b feature/AmazingFeature`)
-3. 提交您的更改 (`git commit -m 'Add some AmazingFeature'`)
-4. 推送到分支 (`git push origin feature/AmazingFeature`)
-5. 打開一個 Pull Request
-
 ## 📝 開源協議
 
 本專案採用 MIT 協議 - 查看 [LICENSE](LICENSE) 文件了解詳情
 
-## 👤 作者
-small R
+## 💖 支持專案
 
-如果您喜歡這個專案，歡迎給個 ⭐️！
+如果你覺得這個專案有幫助，可以：
+
+- ⭐ 給專案一個 Star
+- 🐛 回報 Bug 或提出建議
+- 🔀 提交 Pull Request
+- 📢 分享給其他人
+
+## 👤 Author
+
+- Email: hhgg12661@gmail.com
+- GitHub: (https://github.com/Ynoob87)
+- LinkedIn: (https://www.linkedin.com/in/alaner652/)
