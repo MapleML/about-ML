@@ -2,8 +2,6 @@
 
 這是一個使用 Next.js、React 和 Tailwind CSS 構建的個人自我介紹網站，融合了動漫元素與程式設計的特色。
 
-[English](./docs/README_EN.md) | [中文](./README.md)
-
 ## 🌟 功能特點
 
 - 響應式設計，完美支援各種設備尺寸
@@ -129,14 +127,6 @@ about-me/
 本專案採用 MIT 協議 - 查看 [LICENSE](LICENSE) 文件了解詳情
 
 ## 👤 作者
-
-吳宸麒 (Wu Chen-Chi)
-
-- 就讀台北城市科技大學五專資訊工程系
-- GitHub: [@Ynoob87](https://github.com/Ynoob87)
-- Email: hhgg12661@gmail.com
-- LinkedIn: [alaner652](https://www.linkedin.com/in/alaner652/)
-
----
+small R
 
 如果您喜歡這個專案，歡迎給個 ⭐️！
