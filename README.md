@@ -116,6 +116,12 @@ about-me/
 
 本專案採用 MIT 協議 - 查看 [LICENSE](LICENSE) 文件了解詳情
 
+## 👤 Author
+
+- Email: hhgg12661@gmail.com
+- GitHub: https://github.com/Ynoob87
+- LinkedIn: https://www.linkedin.com/in/alaner652/
+
 ## 💖 支持專案
 
 如果你覺得這個專案有幫助，可以：
@@ -124,9 +130,3 @@ about-me/
 - 🐛 回報 Bug 或提出建議
 - 🔀 提交 Pull Request
 - 📢 分享給其他人
-
-## 👤 Author
-
-- Email: hhgg12661@gmail.com
-- GitHub: https://github.com/Ynoob87
-- LinkedIn: https://www.linkedin.com/in/alaner652/
