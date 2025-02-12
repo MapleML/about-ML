@@ -128,5 +128,5 @@ about-me/
 ## 👤 Author
 
 - Email: hhgg12661@gmail.com
-- GitHub: (https://github.com/Ynoob87)
-- LinkedIn: (https://www.linkedin.com/in/alaner652/)
+- GitHub: https://github.com/Ynoob87
+- LinkedIn: https://www.linkedin.com/in/alaner652/
