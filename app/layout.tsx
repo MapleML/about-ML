@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import React from "react";
-
 import NavBar from "@/components/NavBar";
 
 export const metadata: Metadata = {
@@ -22,7 +21,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="zh-TW">
+    <html>
       <head>
         <meta charSet="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -44,4 +43,3 @@ const BackgroundGradient = () => (
     <div className="absolute bottom-1/4 left-1/2 size-96 -translate-x-1/2 rounded-full bg-autumn-500/20 blur-3xl" />
   </div>
 );
-

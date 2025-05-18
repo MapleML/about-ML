@@ -28,16 +28,6 @@ export default function Anime() {
     }
   }, []);
 
-  const statusMap: Record<AnimeStatus, string> = {
-    watched: "已觀看",
-    watching: "正在觀看",
-  };
-
-  const currentList = animeData[activeTab];
-  const displayList = showAll
-    ? currentList
-    : currentList.slice(0, MOBILE_DISPLAY_COUNT);
-
   return (
     <section
       id="portfolio" >

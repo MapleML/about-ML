@@ -2,14 +2,10 @@
 
 import Image from "next/image";
 import React from "react";
+import { useTranslations } from 'next-intl';
 
 import { commandAnimations, interestTags, socialLinks } from "@/constants";
 import { cn } from "@/lib/utils";
-
-
-
-
-
 import TypeWriter from "../TypeWriter";
 
 const Avatar: React.FC = () => (
@@ -31,24 +27,32 @@ const Avatar: React.FC = () => (
   </div>
 );
 
-const InterestTags: React.FC = () => (
-  <div className="flex flex-wrap justify-center gap-3 lg:justify-start">
-    {interestTags.map((item, index) => {
-      const Icon = item.icon;
-      return (
-        <span
-          key={index}
-          className="flex items-center rounded-2xl bg-black/40 px-4 py-2 text-base backdrop-blur-sm sm:text-lg"
-          role="status"
-          aria-label={`Interest: ${item.text}`}
-        >
-          <Icon className={`mr-2 size-5 sm:size-6 ${item.iconColor}`} />
-          <span className={item.textColor}>{item.text}</span>
-        </span>
-      );
-    })}
-  </div>
-);
+const InterestTags: React.FC = () => {
+  const t = useTranslations();
+  
+  return (
+    <div className="flex flex-wrap justify-center gap-3 lg:justify-start">
+      {interestTags.map((item, index) => {
+        const Icon = item.icon;
+        // 使用類型斷言來訪問 key 屬性
+        const itemWithKey = item as any;
+        const translatedText = itemWithKey.key ? t(itemWithKey.key) : item.text;
+        
+        return (
+          <span
+            key={index}
+            className="flex items-center rounded-2xl bg-black/40 px-4 py-2 text-base backdrop-blur-sm sm:text-lg"
+            role="status"
+            aria-label={`Interest: ${translatedText}`}
+          >
+            <Icon className={`mr-2 size-5 sm:size-6 ${item.iconColor}`} />
+            <span className={item.textColor}>{translatedText}</span>
+          </span>
+        );
+      })}
+    </div>
+  );
+};
 
 const SocialLinks: React.FC = () => (
   <div className="flex justify-center gap-5 lg:justify-start">
@@ -75,13 +79,13 @@ const SocialLinks: React.FC = () => (
 );
 
 const SelfIntroduction: React.FC = () => {
-
+  const t = useTranslations();
 
   return (
     <div className="relative">
       <div className="rounded-2xl bg-black/40 p-6 backdrop-blur-sm animate-slide-in">
         <p className="text-center text-base leading-relaxed text-neutral-200 sm:text-lg lg:text-left">
-          {('hero_about')}
+          {t('hero_about')}
         </p>
       </div>
     </div>
@@ -89,11 +93,19 @@ const SelfIntroduction: React.FC = () => {
 };
 
 export default function Hero() {
+  const t = useTranslations();
+
+  // 用你的翻譯鍵來組成 TypeWriter 的內容
+  const localizedCommands = [
+    t('hero_coding'),
+    t('hero_photography'), 
+    t('hero_3D-print'),
+    t('hero_key1'),
+    t('hero_key2')
+  ];
 
   return (
     <section id="home" className="relative min-h-screen overflow-hidden animate-slide-in">
-      {/* 添加背景裝飾 */}
-
       <div className="relative flex min-h-screen items-center justify-center px-4 pb-12 pt-24 sm:px-6 lg:px-8">
         <div className="mx-auto w-full max-w-7xl">
           <div className="grid items-center gap-8 md:gap-12 lg:grid-cols-2 lg:gap-16">
@@ -112,7 +124,7 @@ export default function Hero() {
                   </span>{" "}
                 </h1>
                 <div className="h-[1.5em] font-mono text-lg text-neutral-300 sm:text-xl md:text-2xl">
-                   <TypeWriter words={commandAnimations} speed={100} />
+                   <TypeWriter words={localizedCommands} speed={100} />
                 </div>
               </div>
 
