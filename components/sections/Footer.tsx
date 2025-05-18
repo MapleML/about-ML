@@ -1,19 +1,17 @@
+"use client";
 import { socialLinks } from "@/constants";
 
+
 export default function Footer() {
+
+
   return (
-    <footer className="mt-2 w-full ">
+    <footer
+  
+    >
       <div className="mx-auto w-full max-w-7xl px-4 py-12">
         <div className="flex flex-col items-center gap-6">
-          <h2 className="bg-gradient-to-r from-primary-500 via-accent-400 to-accent-500 bg-clip-text font-serif text-4xl text-transparent">
-            i am small R
-          </h2>
-          <p className="bg-gradient-to-r from-neutral-600 to-neutral-500 bg-clip-text text-xl text-transparent">
-            謝謝你看到了最後{" "}
-            <span className="text-accent-500 transition-colors duration-300 hover:text-primary-500">
-              ♥
-            </span>
-          </p>
+       
 
           <div className="flex items-center gap-8">
             {socialLinks.map((item) => {
@@ -27,7 +25,7 @@ export default function Footer() {
                   className="group"
                   aria-label={item.ariaLabel}
                 >
-                  <div className="relative flex size-10 items-center justify-center rounded-full bg-white/50 p-2 backdrop-blur-sm transition-colors duration-200 hover:bg-white">
+                  <div className="relative flex size-10 items-center justify-center rounded-full bg-black/40 p-2 backdrop-blur-sm transition-colors duration-200 hover:bg-white/20">
                     <Icon
                       className={`size-5 ${item.className}`}
                       aria-hidden="true"
@@ -38,8 +36,13 @@ export default function Footer() {
             })}
           </div>
 
-          <p className="bg-gradient-to-r from-neutral-600 to-neutral-500 bg-clip-text text-sm text-transparent">
-            © {new Date().getFullYear()} small R
+          <p className="bg-gradient-to-r from-neutral-300 to-neutral-400 bg-clip-text text-sm text-transparent">
+            © {new Date().getFullYear()} MapleML's Web  <span className="text-accent-600 transition-colors duration-300 ">
+              ♥
+            </span>
+          </p>
+          <p className="bg-gradient-to-r from-neutral-300 to-neutral-400 bg-clip-text text-sm text-transparent">
+           fork from small R
           </p>
         </div>
       </div>

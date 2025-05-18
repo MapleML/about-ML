@@ -16,25 +16,25 @@ export default function NavBar() {
 
   const colorSchemes = [
     {
-      text: "text-primary-500",
-      bg: "bg-primary-50/90",
-      border: "border-primary-100",
-      glow: "bg-primary-200/20",
-      activeGlow: "bg-primary-200/30",
+      text: "text-autumn-500",
+      bg: "bg-autumn-50/90",
+      border: "border-autumn-100",
+      glow: "bg-autumn-200/20",
+      activeGlow: "bg-autumn-200/30",
     },
     {
-      text: "text-secondary-600",
-      bg: "bg-secondary-50/90",
-      border: "border-secondary-100",
-      glow: "bg-secondary-200/20",
-      activeGlow: "bg-secondary-200/30",
+      text: "text-autumn-600",
+      bg: "bg-autumn-50/90",
+      border: "border-autumn-100",
+      glow: "bg-autumn-200/20",
+      activeGlow: "bg-autumn-200/30",
     },
     {
-      text: "text-accent-500",
-      bg: "bg-accent-50/90",
-      border: "border-accent-100",
-      glow: "bg-accent-200/20",
-      activeGlow: "bg-accent-200/30",
+      text: "text-autumn-500",
+      bg: "bg-autumn-50/90",
+      border: "border-autumn-100",
+      glow: "bg-aautumn-200/20",
+      activeGlow: "bg-autumn-200/30",
     },
   ];
 
@@ -147,8 +147,8 @@ export default function NavBar() {
         <div
           className="
             flex items-center gap-1.5 rounded-full 
-            border border-white/20
-            bg-white/60 p-1.5
+            border border-black/10
+            bg-black/40 p-1.5
             shadow-lg backdrop-blur-md
             md:gap-2 md:px-3 md:py-2
           "
@@ -173,7 +173,7 @@ export default function NavBar() {
                   ${
                     isActive
                       ? `${scheme.text} ${scheme.bg} ${scheme.border} shadow-sm`
-                      : "text-neutral-600 hover:bg-white/80"
+                      : "text-neutral-200 hover:bg-black/50"
                   }
                 `}
                 aria-label={item.label}

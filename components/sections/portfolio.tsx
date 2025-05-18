@@ -1,0 +1,125 @@
+"use client";
+
+import { useState, useEffect } from "react";
+
+import { animeList as animeData } from "@/constants";
+
+type AnimeStatus = "watched" | "watching";
+
+const MOBILE_DISPLAY_COUNT = 6;
+
+export default function Anime() {
+  const [activeTab, setActiveTab] = useState<AnimeStatus>("watched");
+  const [showAll, setShowAll] = useState(false);
+
+  useEffect(() => {
+    // 動態載入 Instagram 嵌入腳本
+    if (window && document) {
+      const scriptId = "instagram-embed-script";
+      if (!document.getElementById(scriptId)) {
+        const script = document.createElement("script");
+        script.id = scriptId;
+        script.src = "//www.instagram.com/embed.js";
+        script.async = true;
+        document.body.appendChild(script);
+      } else if (window.instgrm) {
+        window.instgrm.Embeds.process();
+      }
+    }
+  }, []);
+
+  const statusMap: Record<AnimeStatus, string> = {
+    watched: "已觀看",
+    watching: "正在觀看",
+  };
+
+  const currentList = animeData[activeTab];
+  const displayList = showAll
+    ? currentList
+    : currentList.slice(0, MOBILE_DISPLAY_COUNT);
+
+  return (
+    <section
+      id="portfolio" >
+      <div className="mx-auto max-w-6xl px-4">
+        <h1 className="mb-8 text-center text-4xl font-extrabold text-neutral-200">
+          拿得出手的作品
+        </h1>
+
+        <div className="mt-8 flex flex-wrap justify-center gap-8">
+          {/* 第一則貼文 */}
+          <blockquote
+            className="instagram-media"
+            data-instgrm-captioned
+            data-instgrm-permalink="https://www.instagram.com/p/DIfSJKgyswB/?utm_source=ig_embed&amp;utm_campaign=loading"
+            data-instgrm-version="14"
+            style={{
+              background: "#FFF",
+              border: 0,
+              borderRadius: 3,
+              boxShadow: "0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15)",
+              margin: 1,
+              maxWidth: 340,
+              minWidth: 326,
+              padding: 0,
+              width: "99.375%",
+            }}
+          >
+            <a
+              href="https://www.instagram.com/p/DIfSJKgyswB/?utm_source=ig_embed&amp;utm_campaign=loading"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{
+                background: "#FFF",
+                lineHeight: 0,
+                padding: 0,
+                textAlign: "center",
+                textDecoration: "none",
+                width: "100%",
+                display: "block",
+              }}
+            >
+              在 Instagram 查看這則貼文
+            </a>
+          </blockquote>
+
+          {/* 第二則貼文 */}
+          <blockquote
+            className="instagram-media"
+            data-instgrm-captioned
+            data-instgrm-permalink="https://www.instagram.com/p/DGk7IQoSdV1/?utm_source=ig_embed&amp;utm_campaign=loading"
+            data-instgrm-version="14"
+            style={{
+              background: "#FFF",
+              border: 0,
+              borderRadius: 3,
+              boxShadow: "0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15)",
+              margin: 1,
+              maxWidth: 340,
+              minWidth: 326,
+              padding: 0,
+              width: "99.375%",
+            }}
+          >
+            <a
+              href="https://www.instagram.com/p/DGk7IQoSdV1/?utm_source=ig_embed&amp;utm_campaign=loading"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{
+                background: "#FFF",
+                lineHeight: 0,
+                padding: 0,
+                textAlign: "center",
+                textDecoration: "none",
+                width: "100%",
+                display: "block",
+              }}
+            >
+              在 Instagram 查看這則貼文
+            </a>
+          </blockquote>
+        </div>
+      </div>
+    </section>
+  );
+}

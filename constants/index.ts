@@ -8,6 +8,11 @@ import {
   MessageCircle,
   Star,
   UserIcon,
+  Camera,
+  Computer,
+  Square,
+  Cuboid,
+  Info,
 } from "lucide-react";
 import {
   FaInstagram,
@@ -15,6 +20,7 @@ import {
   FaGithub,
   FaReact,
   FaNode,
+  FaCamera,
 } from "react-icons/fa";
 import { SiNextdotjs, SiOsu, SiTypescript } from "react-icons/si";
 
@@ -25,78 +31,80 @@ import type {
   InterestTag,
   AboutTab,
 } from "@/types";
+import { info } from "console";
 
 export const navItems: NavItem[] = [
   {
     icon: Home,
     size: 20,
-    label: "主頁",
+    label: "home",
     id: "home",
   },
   {
     icon: User,
     size: 20,
-    label: "關於",
+    label: "about",
     id: "about",
   },
   {
-    icon: Heart,
+    icon: Camera,
     size: 20,
-    label: "動漫天地",
-    id: "anime",
+    label: "portfolio",
+    id: "portfolio",
   },
 ];
 
 export const socialLinks: SocialLink[] = [
   {
-    icon: SiOsu,
-    href: "https://osu.ppy.sh/users/30500236",
+    icon: FaInstagram,
+    href: "https://www.instagram.com/ml___photo/?hl=zh-tw",
     className: "text-accent-500 transition-colors duration-200",
-    ariaLabel: "Visit my Osu profile",
+    ariaLabel: "Follow my photography account on Instagram",
   },
   {
     icon: FaInstagram,
-    href: "https://www.instagram.com/ryros_/",
+    href: "https://www.instagram.com/ml_chen_dev/?hl=zh-tw",
     className: "text-accent-500 transition-colors duration-200",
-    ariaLabel: "Follow me on Instagram",
-  },
-  {
-    icon: FaDiscord,
-    href: "https://discord.gg/your-permanent-invite",
-    className: "text-primary-500 transition-colors duration-200",
-    ariaLabel: "Connect with me on Discord",
+    ariaLabel: "Follow my personal account on Instagram",
   },
   {
     icon: FaGithub,
-    href: "https://github.com/Ynoob87",
-    className: "text-neutral-800 transition-colors duration-200",
-    ariaLabel: "Check out my GitHub projects",
+    href: "https://github.com/MapleML",
+    className: "text-neutral-300 transition-colors duration-200",
+    ariaLabel: "Check out my GitHub profile",
   },
+/*  {
+    icon: FaCamera,
+    href: "https://photo.mapleml.xyz/",
+    className: "text-neutral-800 transition-colors duration-200",
+    ariaLabel: "check out my photography website",
+  },*/
+  
 ];
 
 export const commandAnimations = [
-  'git commit -m "讓我們一起迷失吧"',
-  "npm run life.js",
+  'abandon my life',
+  "i wanna take a photo",
 ];
 
 export const interestTags: InterestTag[] = [
   {
     icon: Code,
-    text: "程式開發",
-    iconColor: "text-primary-500",
-    textColor: "text-primary-500",
+    text: "coding",
+    iconColor: "text-autumn-200",
+    textColor: "text-autumn-200",
   },
   {
-    icon: Heart,
-    text: "看動漫",
-    iconColor: "text-accent-500",
-    textColor: "text-accent-500",
+    icon: Camera,
+    text: "photography",
+    iconColor: "text-autumn-400",
+    textColor: "text-autumn-400",
   },
   {
-    icon: BedIcon,
-    text: "深度睡眠",
-    iconColor: "text-secondary-500",
-    textColor: "text-secondary-500",
+    icon: Cuboid,
+    text: "3D print",
+    iconColor: "text-autumn-500",
+    textColor: "text-autumn-500",
   },
 ];
 
@@ -234,48 +242,51 @@ export interface CardStyle {
 
 export const cardStyles = {
   default: {
-    base: "rounded-xl bg-white/50 p-6 backdrop-blur-sm",
+    base: "rounded-xl bg-black/40 p-6 backdrop-blur-sm",
   },
   social: {
-    base: "relative flex items-center justify-center rounded-full bg-white/50 p-2 backdrop-blur-sm transition-colors duration-200",
-    hover: "hover:bg-white",
+    base: "relative flex items-center justify-center rounded-full bg-black/40 p-2 backdrop-blur-sm transition-colors duration-200",
+    hover: "hover:bg-white/20",
   },
 } as const;
 
 export const aboutTabs: AboutTab[] = [
-  { id: "personality", label: "性格特質", icon: UserIcon },
-  { id: "interests", label: "興趣愛好", icon: HeartIcon },
-  { id: "notice", label: "雷點提醒", icon: Star },
+ { id: "interests", label: "interests", icon: HeartIcon },
+  { id: "personality", label: "notice", icon: Info },
+  { id: "notice", label: "spoil", icon: Star },
 ];
 
 export const personalityInfo = {
   communication: {
-    title: "溝通風格",
-    icon: MessageCircle,
+    title: "約拍注意事項",
+    icon: Info,
     points: [
-      "喜歡用顏文字和注音符號 (｀・ω・´)",
-      "說話風格直白，經常講幹話發幹文",
-      "討論喜歡的話題會特別興奮",
+      "私訊'ML Photo'這隻instagram帳號",
+      "只有調色跟微修圖",
+      "使用Google 相簿返圖",
+      "歡迎任何方式的修圖",
+      "收費部分目前採施捨制(?",
+      "若有發文請使用協作者",
     ],
   },
   personality: {
-    title: "個性特點",
-    icon: Star,
+    title: "設備",
+    icon: Camera,
     points: [
-      "對喜歡的事物會非常投入",
-      "熱愛學習新技術和知識",
-      "偶爾會陷入自己的世界",
-      "討論動漫或技術時特別興奮",
-      "對不熟的人比較害羞 (在現實生活中)",
+      "Nikon Z50",
+      "外拍使用機頂閃(TT685 II)",
+      "場次使用閃燈及補光燈",
+      "部分使用黑柔鏡片",
+      "(之後會有更多閃燈 現在沒錢)",
     ],
   },
 };
 
 export const aboutTags = [
-  { text: "16 🌱", variant: "primary" as const },
-  { text: "🎮 遊戲開發愛好者", variant: "secondary" as const },
-  { text: "📺 動漫宅", variant: "accent" as const },
-  { text: "🌐 中/英文交流", variant: "primary" as const },
+  { text: "16", variant: "primary" as const },
+  { text: "📷 photographer", variant: "secondary" as const },
+  { text: "🌐 frontend", variant: "accent" as const },
+  { text: " 🚮 garbage", variant: "primary" as const },
 ];
 
 export const projectData = {

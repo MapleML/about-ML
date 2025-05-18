@@ -6,25 +6,27 @@ import React from "react";
 import { commandAnimations, interestTags, socialLinks } from "@/constants";
 import { cn } from "@/lib/utils";
 
+
+
+
+
 import TypeWriter from "../TypeWriter";
 
 const Avatar: React.FC = () => (
-  <div className="relative aspect-square w-56 sm:w-72 md:w-80 lg:w-96">
+  <div className="relative aspect-square w-56 sm:w-72 md:w-80 lg:w-96 animate-float-y">
     <div className="group relative size-full">
-      <div className="relative size-full overflow-hidden rounded-full bg-white/50 backdrop-blur-sm">
-        <Image
-          src="/Images/HeroAvatar.jpg"
-          alt="Hero Avatar"
-          width={1920}
-          height={400}
-          className="size-full object-cover"
-        />
+      {/* 外框漸層效果 */}
+      <div className="absolute inset-0 rounded-full bg-gradient-to-r from-autumn-400 via-autumn-300 to-autumn-200 p-[5px] animate-border-reveal">
+        <div className="relative size-full overflow-hidden rounded-full bg-black/40 backdrop-blur-sm">
+          <Image
+            src="/Images/HeroAvatar.jpg"
+            alt="Hero Avatar"
+            width={1920}
+            height={400}
+            className="size-full object-cover"
+          />
+        </div>
       </div>
-
-      {/* 裝飾圓圈 */}
-      <div className="absolute -right-3 -top-3 size-10 rounded-full bg-primary-400/90 sm:-right-5 sm:-top-5 sm:size-12 lg:size-14" />
-      <div className="absolute -right-5 top-10 size-8 rounded-full bg-secondary-400/90 sm:-right-7 sm:top-12 sm:size-10 lg:size-12" />
-      <div className="absolute -bottom-2 -left-2 size-9 rounded-full bg-accent-400/90 sm:-bottom-2 sm:-left-2 sm:size-11" />
     </div>
   </div>
 );
@@ -36,7 +38,7 @@ const InterestTags: React.FC = () => (
       return (
         <span
           key={index}
-          className="flex items-center rounded-2xl bg-white/50 px-4 py-2 text-base backdrop-blur-sm sm:text-lg"
+          className="flex items-center rounded-2xl bg-black/40 px-4 py-2 text-base backdrop-blur-sm sm:text-lg"
           role="status"
           aria-label={`Interest: ${item.text}`}
         >
@@ -63,7 +65,7 @@ const SocialLinks: React.FC = () => (
             item.ariaLabel || `Visit my ${item.href.split("/").slice(-1)[0]}`
           }
         >
-          <div className="relative flex size-14 items-center justify-center rounded-full bg-white/50 p-2 backdrop-blur-sm transition-colors duration-200 hover:bg-white">
+          <div className="relative flex size-14 items-center justify-center rounded-full bg-black/40 p-2 backdrop-blur-sm transition-colors duration-200 hover:bg-white/20">
             <Icon className={cn("size-6", item.className)} aria-hidden="true" />
           </div>
         </a>
@@ -72,44 +74,45 @@ const SocialLinks: React.FC = () => (
   </div>
 );
 
-const SelfIntroduction: React.FC = () => (
-  <div className="relative">
-    <div className="rounded-2xl bg-white/50 p-6 backdrop-blur-sm">
-      <p className="text-center text-base leading-relaxed text-neutral-700 sm:text-lg lg:text-left">
-        目前是個五專資工學生，我最喜歡寫程式、玩遊戲、看動漫、聽音樂
-        只想要過平靜的生活，因為我是個 Chill Guy
-      </p>
+const SelfIntroduction: React.FC = () => {
+
+
+  return (
+    <div className="relative">
+      <div className="rounded-2xl bg-black/40 p-6 backdrop-blur-sm animate-slide-in">
+        <p className="text-center text-base leading-relaxed text-neutral-200 sm:text-lg lg:text-left">
+          {('hero_about')}
+        </p>
+      </div>
     </div>
-  </div>
-);
+  );
+};
 
 export default function Hero() {
+
   return (
-    <section id="home" className="relative min-h-screen overflow-hidden">
+    <section id="home" className="relative min-h-screen overflow-hidden animate-slide-in">
       {/* 添加背景裝飾 */}
-      <div className="pointer-events-none absolute inset-0 -z-10">
-        <div className="absolute -left-1/4 top-1/4 size-96 rounded-full bg-primary-200/20 blur-3xl" />
-        <div className="absolute -right-1/4 top-1/2 size-96 rounded-full bg-secondary-200/20 blur-3xl" />
-        <div className="absolute bottom-1/4 left-1/2 size-96 -translate-x-1/2 rounded-full bg-accent-200/20 blur-3xl" />
-      </div>
 
       <div className="relative flex min-h-screen items-center justify-center px-4 pb-12 pt-24 sm:px-6 lg:px-8">
         <div className="mx-auto w-full max-w-7xl">
           <div className="grid items-center gap-8 md:gap-12 lg:grid-cols-2 lg:gap-16">
-            <div className="relative order-1 flex items-center justify-center lg:order-2">
+            {/* 圖片區塊 */}
+            <div className="relative flex items-center justify-center">
               <Avatar />
             </div>
 
-            <div className="order-2 space-y-8 lg:order-1">
+            {/* 文字內容區塊 */}
+            <div className="space-y-8">
               <div className="space-y-4 text-center lg:text-left">
-                <h1 className="font-serif text-3xl font-bold text-neutral-800 sm:text-4xl md:text-5xl lg:text-6xl">
+                <h1 className="font-serif text-3xl font-bold bg-gradient-to-r from-neutral-600 to-neutral-200 bg-clip-text text-transparent sm:text-4xl md:text-5xl lg:text-6xl">
                   I am{" "}
-                  <span className="gradient-text from-accent-500 to-primary-500 bg-clip-text font-serif">
-                    small R
+                  <span className="bg-gradient-to-r from-autumn-600 to-autumn-400 bg-clip-text text-transparent font-serif">
+                    MapleML
                   </span>{" "}
                 </h1>
-                <div className="h-[1.5em] font-mono text-lg text-neutral-600 sm:text-xl md:text-2xl">
-                  $ <TypeWriter words={commandAnimations} speed={100} />
+                <div className="h-[1.5em] font-mono text-lg text-neutral-300 sm:text-xl md:text-2xl">
+                   <TypeWriter words={commandAnimations} speed={100} />
                 </div>
               </div>
 

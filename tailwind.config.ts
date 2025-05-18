@@ -2,6 +2,7 @@ import type { Config } from "tailwindcss";
 
 export default {
   content: [
+    "./constants/**/*.{js,ts,jsx,tsx,mdx}",
     "./pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
@@ -21,6 +22,7 @@ export default {
     },
     extend: {
       colors: {
+        
         // 藍色系列
         primary: {
           50: "#F0F7FF",
@@ -54,6 +56,15 @@ export default {
           600: "#DB006B",
         },
 
+        autumn: {
+          50: "#FFF5EF",   // 非常淡的暖杏色
+          100: "#FFE2CC",  // 杏仁奶
+          200: "#FFBE94",  // 淺棕橙
+          300: "#FF9966",  // 楓葉橘
+          400: "#D96B3A",  // 焦糖楓紅
+          500: "#A64521",  // 深紅棕
+          600: "#6F2C14",  // 極深棕紅
+        },
         // 中性色系列
         neutral: {
           50: "#F8FAFC",
@@ -68,7 +79,9 @@ export default {
           900: "#0F172A",
         },
       },
+      
     },
   },
   plugins: [],
+  
 } satisfies Config;
