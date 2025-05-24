@@ -20,7 +20,7 @@ export default function CustomCursor() {
   return (
     <Image
       ref={cursorRef}
-      src="/images/cursor.gif"
+      src="/Images/cursor.gif"
       alt="cursor"
       width={32}
       height={32}
