@@ -4,13 +4,12 @@ import { useState, useEffect } from "react";
 
 import { useInView } from "@/hooks/useInView";
 import { useTranslations } from 'next-intl';
+import React from 'react';
 type AnimeStatus = "watched" | "watching";
 
 const MOBILE_DISPLAY_COUNT = 6;
 
 export default function Anime() {
-  const [activeTab, setActiveTab] = useState<AnimeStatus>("watched");
-  const [showAll, setShowAll] = useState(false);
   const [ref, inView, shouldAnimate] = useInView({ threshold: 0.2 });
   const t = useTranslations();
   useEffect(() => {

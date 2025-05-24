@@ -24,7 +24,7 @@ import {
   FaCamera,
   FaFacebook,
 } from "react-icons/fa";
-import { SiNextdotjs, SiOsu, SiTypescript } from "react-icons/si";
+import { SiNextdotjs, SiTypescript } from "react-icons/si";
 
 import type {
   NavItem,
@@ -33,7 +33,6 @@ import type {
   InterestTag,
   AboutTab,
 } from "@/types";
-import { info } from "console";
 
 export const navItems: NavItem[] = [
   {
