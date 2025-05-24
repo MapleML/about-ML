@@ -1,9 +1,9 @@
 import {getRequestConfig} from 'next-intl/server';
-import {locales, defaultLocale} from '../i18n'; // 這裡指向根目錄的 i18n.ts
+import {locales, defaultLocale} from '../i18n';
 
 export default getRequestConfig(async ({locale}) => {
-  console.log('request.ts locale:', locale);
-  const validLocale = locales.includes(locale as any) ? locale : defaultLocale;
+  // 保證 validLocale 一定是 string
+  const validLocale: string = locales.includes(locale as string) ? locale as string : defaultLocale;
 
   let messages;
   try {

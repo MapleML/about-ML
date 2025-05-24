@@ -1,16 +1,14 @@
-import {useLocale} from 'next-intl';
-import {createSharedPathnamesNavigation} from 'next-intl/navigation';
-import {locales} from '../i18n';
+import { useLocale, useTranslations } from 'next-intl';
+import { usePathname, useRouter } from 'next/navigation';
 
-export const useRouter = createSharedPathnamesNavigation({locales});
-
-export function usePathname() {
+export function useI18nPath() {
   const locale = useLocale();
+  const pathname = usePathname();
   const router = useRouter();
-  const pathname = router.pathname;
-  
+
   return {
     locale,
-    pathname
+    pathname,
+    router
   };
 }
