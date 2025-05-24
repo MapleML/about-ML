@@ -153,7 +153,9 @@ export default function About() {
                 </h2>
                 <div className="flex flex-wrap justify-center gap-2 md:justify-start">
                   {aboutTags.map((tag, index) => {
-                    const displayText = tag.key ? `${tag.icon ?? ""} ${t(tag.key)}` : tag.text;
+                    const displayText = tag.key
+                      ? `${tag.icon ?? ""} ${t(tag.key)}`
+                      : tag.text ?? "";
                     return (
                       <Tag key={index} text={displayText} variant={tag.variant} />
                     );
