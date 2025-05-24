@@ -1,16 +1,11 @@
-import React from "react";
-import About from "@/components/sections/About";
-import Anime from "@/components/sections/portfolio";
-import Footer from "@/components/sections/Footer";
-import Hero from "@/components/sections/Hero";
+'use client';
 
-export default function Home() {
-  return (
-    <>
-      <Hero />
-      <About />
-      <Anime />
-      <Footer />
-    </>
-  );
+import dynamic from "next/dynamic";
+
+const ClientHome = dynamic(() => import("@/components/ClientHome"), {
+  ssr: false,
+});
+
+export default function Page() {
+  return <ClientHome />;
 }

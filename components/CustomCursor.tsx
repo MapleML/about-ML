@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useEffect, useRef } from "react";
 
 export default function CustomCursor() {
@@ -17,16 +18,16 @@ export default function CustomCursor() {
   }, []);
 
   return (
-    <img
+    <Image
       ref={cursorRef}
       src="/images/cursor.gif"
       alt="cursor"
+      width={32}
+      height={32}
       style={{
         position: "fixed",
         left: 0,
         top: 0,
-        width: 32,
-        height: 32,
         pointerEvents: "none",
         zIndex: 9999,
         transform: "translate(-50%, -50%)",

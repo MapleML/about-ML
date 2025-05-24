@@ -1,6 +1,8 @@
 "use client";
 
-import React, { useCallback, useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
+
+
 import type { TypeWriterProps } from "@/types";
 
 export default function TypeWriter({
@@ -26,54 +28,47 @@ export default function TypeWriter({
     return () => clearInterval(cursorInterval);
   }, []);
 
-  const typeNextCharacter = useCallback(() => {
-    if (timeoutRef.current) {
-      clearTimeout(timeoutRef.current);
+  useEffect(() => {
+    function typeNextCharacter() {
+      if (timeoutRef.current) {
+        clearTimeout(timeoutRef.current);
+      }
+
+      const handleTyping = () => {
+        if (!isDeleting) {
+          // 打字中
+          if (currentText !== currentWord) {
+            setCurrentText(currentWord.slice(0, currentText.length + 1));
+          } else {
+            // 完成打字，等待刪除
+            timeoutRef.current = setTimeout(() => {
+              setIsDeleting(true);
+            }, delayAfterWord);
+          }
+        } else {
+          // 刪除中
+          if (currentText === "") {
+            setIsDeleting(false);
+            setWordIndex((prev) => (prev + 1) % words.length);
+          } else {
+            setCurrentText(currentText.slice(0, currentText.length - 1));
+          }
+        }
+      };
+
+      timeoutRef.current = setTimeout(
+        handleTyping,
+        isDeleting ? speed / 2 : speed
+      );
     }
 
-    const handleTyping = () => {
-      if (!isDeleting) {
-        // 打字中
-        if (currentText !== currentWord) {
-          setCurrentText(currentWord.slice(0, currentText.length + 1));
-        } else {
-          // 完成打字，等待刪除
-          timeoutRef.current = setTimeout(() => {
-            setIsDeleting(true);
-          }, delayAfterWord);
-        }
-      } else {
-        // 刪除中
-        if (currentText === "") {
-          setIsDeleting(false);
-          setWordIndex((prev) => (prev + 1) % words.length);
-        } else {
-          setCurrentText(currentText.slice(0, currentText.length - 1));
-        }
-      }
-    };
-
-    timeoutRef.current = setTimeout(
-      handleTyping,
-      isDeleting ? speed / 2 : speed
-    );
-  }, [
-    currentText,
-    currentWord,
-    delayAfterWord,
-    isDeleting,
-    speed,
-    words.length,
-  ]);
-
-  useEffect(() => {
     typeNextCharacter();
     return () => {
       if (timeoutRef.current) {
         clearTimeout(timeoutRef.current);
       }
     };
-  }, [typeNextCharacter]);
+  }, [currentText, currentWord, delayAfterWord, isDeleting, speed, words]);
 
   return (
     <span className="font-mono">

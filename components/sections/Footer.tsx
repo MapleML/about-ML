@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+
 import { socialLinks } from "@/constants";
 import { useInView } from "@/hooks/useInView";
 
@@ -41,8 +42,8 @@ export default function Footer() {
             </div>
 
             <p className="bg-gradient-to-r from-neutral-300 to-neutral-400 bg-clip-text text-sm text-transparent">
-              © {new Date().getFullYear()} MapleML's Web{" "}
-              <span className="text-accent-600 transition-colors duration-300 ">
+              ©  MapleML&apos;s Web{" "}
+              <span className="text-accent-600 transition-colors duration-300">
                 ♥
               </span>
             </p>
@@ -52,18 +53,18 @@ export default function Footer() {
                 href="https://smallr-portfolio.vercel.app/en"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="underline hover:text-accent-400 transition-colors"
+                className="underline transition-colors hover:text-accent-400"
               >
                 small R
               </a>
             </p>
-            <p className="bg-gradient-to-r from-neutral-300 to-neutral-400 bg-clip-text text-x text-transparent">
+            <p className="bg-gradient-to-r from-neutral-300 to-neutral-400 bg-clip-text text-transparent">
               Domain supported by {" "}
               <a
                 href="https://discord.com/users/523114942434639873"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="underline hover:text-other-orange transition-colors"
+                className="underline transition-colors hover:text-other-orange"
               >
                 sangege
               </a>{" "}
@@ -72,7 +73,7 @@ export default function Footer() {
                 href="https://coffeehost.net/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="underline hover:text-other-orange transition-colors"
+                className="underline transition-colors hover:text-other-orange"
               >
                 Coffee Host
               </a>

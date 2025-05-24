@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
-import "./globals.css";
 import React from "react";
-import NavBar from "@/components/NavBar";
+
+import "./globals.css";
+
 import CustomCursor from "@/components/CustomCursor";
+import NavBar from "@/components/NavBar";
 
 export const metadata: Metadata = {
   title: "MapleML's Web",

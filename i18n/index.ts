@@ -1,6 +1,6 @@
 import Link from 'next/link';
-import { useRouter as useNextRouter } from 'next/navigation';
-import { usePathname as useNextPathname } from 'next/navigation';
+import { useRouter as useNextRouter , usePathname as useNextPathname } from 'next/navigation';
+
 
 export { Link };
 

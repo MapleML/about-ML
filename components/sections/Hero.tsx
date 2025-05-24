@@ -1,18 +1,21 @@
 "use client";
 
-import React from "react";
 import Image from "next/image";
-import { useTranslations } from 'next-intl';
-import { useInterestTags } from "@/constants";
-import { socialLinks } from "@/constants";
+import { useTranslations } from "next-intl";
+import React from "react";
+
+import { useInterestTags, socialLinks } from "@/constants";
 import { cn } from "@/lib/utils";
+
 import TypeWriter from "../TypeWriter";
 
 const Avatar: React.FC = () => (
-  <div className="relative aspect-square w-56 sm:w-72 md:w-80 lg:w-96 animate-float-y">
+  <div className="animate-float-y relative aspect-square w-56 sm:w-72 md:w-80 lg:w-96">
+
     <div className="group relative size-full">
       {/* 外框漸層效果 */}
-      <div className="absolute inset-0 rounded-full bg-gradient-to-r from-autumn-400 via-autumn-300 to-autumn-200 p-[5px] animate-border-reveal">
+      <div className="animate-border-reveal absolute inset-0 rounded-full bg-gradient-to-r from-autumn-400 via-autumn-300 to-autumn-200 p-[5px]">
+
         <div className="relative size-full overflow-hidden rounded-full bg-black/40 backdrop-blur-sm">
           <Image
             src="/Images/HeroAvatar.jpg"
@@ -27,6 +30,14 @@ const Avatar: React.FC = () => (
   </div>
 );
 
+interface InterestTag {
+  icon: React.ComponentType<{ className?: string }>;
+  text: string;
+  iconColor: string;
+  textColor: string;
+  key?: string;
+}
+
 const InterestTags: React.FC = () => {
   const t = useTranslations();
   const tags = useInterestTags();
@@ -35,8 +46,8 @@ const InterestTags: React.FC = () => {
       
       {tags.map((item, index) => {
         const Icon = item.icon;
-        // 使用類型斷言來訪問 key 屬性
-        const itemWithKey = item as any;
+        // Use proper typing instead of any
+        const itemWithKey = item as InterestTag;
         const translatedText = itemWithKey.key ? t(itemWithKey.key) : item.text;
         
         return (
@@ -84,7 +95,7 @@ const SelfIntroduction: React.FC = () => {
 
   return (
     <div className="relative">
-      <div className="rounded-2xl bg-black/40 p-5 backdrop-blur-sm ">
+      <div className="rounded-2xl bg-black/40 p-5 backdrop-blur-sm">
         <p className="text-center text-base leading-relaxed text-neutral-200 sm:text-lg lg:text-left">
           {t('hero_about')}
         </p>
@@ -103,7 +114,8 @@ export default function Hero() {
   ];
 
   return (
-    <section id="home" className="relative min-h-screen overflow-hidden animate-slide-in">
+    <section id="home" className="animate-slide-in relative min-h-screen overflow-hidden">
+
       <div className="relative flex min-h-screen items-center justify-center px-4 pb-12 pt-24 sm:px-6 lg:px-8">
         <div className="mx-auto w-full max-w-7xl">
           <div className="grid items-center gap-8 md:gap-12 lg:grid-cols-2 lg:gap-16">
@@ -115,9 +127,9 @@ export default function Hero() {
             {/* 文字內容區塊 */}
             <div className="space-y-8">
               <div className="space-y-4 text-center lg:text-left">
-                <h1 className="font-serif text-3xl font-bold bg-gradient-to-r from-neutral-600 to-neutral-200 bg-clip-text text-transparent sm:text-4xl md:text-5xl lg:text-6xl">
+                <h1 className="bg-gradient-to-r from-neutral-600 to-neutral-200 bg-clip-text font-serif text-3xl font-bold text-transparent sm:text-4xl md:text-5xl lg:text-6xl">
                   I am{" "}
-                  <span className="bg-gradient-to-r from-autumn-600 to-autumn-400 bg-clip-text text-transparent font-serif">
+                  <span className="bg-gradient-to-r from-autumn-600 to-autumn-400 bg-clip-text font-serif text-transparent">
                     MapleML
                   </span>{" "}
                 </h1>

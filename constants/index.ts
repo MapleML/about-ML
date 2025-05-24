@@ -15,6 +15,7 @@ import {
   Info,
   FacebookIcon
 } from "lucide-react";
+import { useTranslations } from 'next-intl';
 import {
   FaInstagram,
   FaDiscord,
@@ -33,6 +34,7 @@ import type {
   InterestTag,
   AboutTab,
 } from "@/types";
+
 
 export const navItems: NavItem[] = [
   {
@@ -54,8 +56,6 @@ export const navItems: NavItem[] = [
     id: "portfolio",
   },
 ];
-
-import { useTranslations } from 'next-intl';
 
 export const socialLinks: SocialLink[] = [
   {
@@ -87,7 +87,7 @@ export const socialLinks: SocialLink[] = [
     href: "https://photo.mapleml.xyz/",
     className: "text-neutral-800 transition-colors duration-200",
     ariaLabel: "check out my photography website",
-  },*/
+  }, */
   
 ];
 

@@ -1,10 +1,10 @@
 "use client";
 
-import React, { useState } from "react";
 import { CameraIcon, CodeIcon, CuboidIcon, HeartIcon, MessageCircle, Star,} from "lucide-react";
 import Image from "next/image";
-import { useTranslations } from 'next-intl';
-import { useInView } from "@/hooks/useInView";
+import { useTranslations } from "next-intl";
+import React, { useState } from "react";
+
 import {
   socialLinks,
   cardStyles,
@@ -12,6 +12,7 @@ import {
   personalityInfo,
   aboutTags,
 } from "@/constants";
+import { useInView } from "@/hooks/useInView";
 import { cn } from "@/lib/utils";
 import { AboutTab } from "@/types";
 
@@ -90,7 +91,7 @@ const SocialLinks: React.FC = () => (
 export default function About() {
   const [activeTab, setActiveTab] = useState<AboutTab["id"]>("interests");
   const t = useTranslations();
-  const [ref, inView, shouldAnimate, everInView] = useInView({ threshold: 0.2 });
+  const [ref, , shouldAnimate, everInView] = useInView({ threshold: 0.2 });
 
   const activeColors = [
     "bg-autumn-200",
