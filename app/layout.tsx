@@ -3,6 +3,7 @@ import "./globals.css";
 import React from "react";
 import NavBar from "@/components/NavBar";
 import CustomCursor from "@/components/CustomCursor";
+
 export const metadata: Metadata = {
   title: "MapleML's Web",
   description: "a photographer, a programmer.",

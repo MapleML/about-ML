@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useCallback, useEffect, useRef, useState } from "react";
-
 import type { TypeWriterProps } from "@/types";
 
 export default function TypeWriter({

@@ -1,4 +1,6 @@
 "use client";
+
+import React from "react";
 import { socialLinks } from "@/constants";
 import { useInView } from "@/hooks/useInView";
 
@@ -52,7 +54,7 @@ export default function Footer() {
                 rel="noopener noreferrer"
                 className="underline hover:text-accent-400 transition-colors"
               >
-              small R
+                small R
               </a>
             </p>
             <p className="bg-gradient-to-r from-neutral-300 to-neutral-400 bg-clip-text text-x text-transparent">
@@ -63,14 +65,17 @@ export default function Footer() {
                 rel="noopener noreferrer"
                 className="underline hover:text-other-orange transition-colors"
               >
-              sangege
-              </a> |
-                <a
+                sangege
+              </a>{" "}
+              |{" "}
+              <a
                 href="https://coffeehost.net/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="underline hover:text-other-orange transition-colors"
-              > Coffee Host</a>
+              >
+                Coffee Host
+              </a>
             </p>
           </div>
         </div>

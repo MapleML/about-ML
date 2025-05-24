@@ -1,11 +1,10 @@
 "use client";
 
-import { CameraIcon, Code, CodeIcon, CuboidIcon, GamepadIcon, HeartIcon, MessageCircle, Star, TvIcon } from "lucide-react";
-import Image from "next/image";
 import React, { useState } from "react";
+import { CameraIcon, CodeIcon, CuboidIcon, HeartIcon, MessageCircle, Star,} from "lucide-react";
+import Image from "next/image";
 import { useTranslations } from 'next-intl';
 import { useInView } from "@/hooks/useInView";
-
 import {
   socialLinks,
   cardStyles,

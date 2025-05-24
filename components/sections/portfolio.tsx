@@ -1,13 +1,9 @@
 "use client";
 
-import { useState, useEffect } from "react";
-
+import { useEffect } from "react";
 import { useInView } from "@/hooks/useInView";
 import { useTranslations } from 'next-intl';
 import React from 'react';
-type AnimeStatus = "watched" | "watching";
-
-const MOBILE_DISPLAY_COUNT = 6;
 
 export default function Anime() {
   const [ref, inView, shouldAnimate] = useInView({ threshold: 0.2 });
