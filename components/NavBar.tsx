@@ -1,6 +1,8 @@
 "use client";
 
 import React, { useState, useEffect, useCallback, useRef } from "react";
+import { useRouter, usePathname } from "next/navigation"; // ← 只用 next/navigation
+import { Globe } from "lucide-react";
 
 import { navItems } from "@/constants";
 
@@ -118,6 +120,17 @@ export default function NavBar() {
     });
   }, []);
 
+  const router = useRouter();
+  const pathname = usePathname();
+
+  const handleLocaleChange = (locale: string) => {
+    // 取得目前路徑，將 locale 取代
+    const segments = pathname.split("/");
+    segments[1] = locale;
+    const newPath = segments.join("/");
+    router.replace(newPath);
+  };
+
   useEffect(() => {
     const throttledScroll = throttleScroll();
     lastScrollY.current = window.scrollY;
@@ -218,6 +231,26 @@ export default function NavBar() {
               </button>
             );
           })}
+
+          {/* 語言切換，僅顯示當前語言，點擊切換 */}
+          <div className="flex items-center gap-1.5 ml-2">
+            <button
+              onClick={() =>
+                handleLocaleChange(pathname.split("/")[1] === "en" ? "zh-TW" : "en")
+              }
+              className={`
+                flex items-center gap-1 px-2 py-1 rounded text-xs
+                transition-all duration-200 ease-out
+                ${pathname.split("/")[1] === "en"
+                  ? " hover:bg-black/50 "
+                  : " hover:bg-black/50"}
+                text-neutral-200
+              `}
+            >
+              <Globe className="text-white" size={18} />
+              {pathname.split("/")[1] === "en" ? "中文" : "English"}
+            </button>
+          </div>
         </div>
       </nav>
     </header>

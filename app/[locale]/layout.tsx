@@ -4,23 +4,24 @@ import {notFound} from 'next/navigation';
 
 const locales = ['en', 'zh-TW'];
 
-export default async function LocaleLayout({
-  children,
-  params: {locale}
-}: {
+export default async function LocaleLayout(props: {
   children: React.ReactNode;
-  params: {locale: string};
+  params: Promise<{locale: string}>;
 }) {
-  // 驗證語言是否有效
+  const {children, params} = props;
+  const {locale} = await params;
+
   if (!locales.includes(locale)) {
     notFound();
   }
 
-  // 載入該語言的訊息
-  const messages = await getMessages();
+  // 明確傳入 locale
+  const messages = await getMessages({locale});
+
+
 
   return (
-    <NextIntlClientProvider messages={messages}>
+    <NextIntlClientProvider messages={messages} locale={locale}>
       {children}
     </NextIntlClientProvider>
   );

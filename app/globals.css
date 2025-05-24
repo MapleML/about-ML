@@ -83,3 +83,7 @@
 .animate-float-y {
   animation: float-y 4s ease-in-out infinite;
 }
+
+html, body *{
+cursor: none !important;
+}

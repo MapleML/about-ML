@@ -1,10 +1,76 @@
 {
-    "hero_about": "嗨,我是MapleML,現年16歲,一個台灣可悲高中生,我不會寫程式也不會攝影。",
+    "hero_about": "嗨 我是MapleML,你也可以叫我ML、ML Chen、Maple、Maple Chen等,是個在台灣的16歲高中生",
     "hero_coding": "摳頂",
     "hero_photography": "攝影",
     "hero_3D-print": "3D列印",
     "hero_key1": "放棄人生",
     "hero_key2": "我想拍照",
-    "about_about-me": "",
-    "about_about": ""
+
+    "about_about-me": "我喜歡拍照—人像、coser、街拍、活動等等。我也喜歡寫程式,但我不會寫程式,我只是個廢物。",
+    "about_about": "關於我",
+    "about_favorite": "興趣愛好",
+    "about_notice": "注意事項",
+    "about_boundaries": "雷點(?",
+    "about_tag_photography": "攝影師",
+    "about_tag_frontend": "前端",
+    "about_tag_3D": "3D列印",
+    "about_tag_garbdge": "垃圾",
+
+
+    "about_photography": "攝影",
+    "about_photography_title1": "攝影主題",
+    "about_photography_content1": "人像、Coser、街拍。",
+    "about_photography_title2": "學習內容",
+    "about_photography_content2": "我主要拍攝 Cosplay 攝影，還在學習如何正確打光 —— 可惜燈具很貴，所以如果願意支持我會很感謝！",
+
+    "about_coding_website": "網站開發",
+    "about_coding_website_title1": "Next.js",
+    "about_coding_website_content1": "我用 Next.js 架設我的網站，也有幾個其他網站正在開發中。",
+    "about_coding_website_title2": "學習內容",
+    "about_coding_website_content2": "你知道《Cytus II》嗎？這個遊戲裡有個叫「iM 系統」的東西 —— 我現在正在做一個類似的！",
+
+    "about_3D": "3D 建模與列印",
+    "about_3D_title1": "介紹",
+    "about_3D_content1": "我正在學習如何使用 3D 印表機（FDM 和 SLA）。我國中的時候曾經用過 Onshape 做模型，不過現在差不多忘光了……",
+    "about_3D_title2": "目標",
+    "about_3D_content2": "我希望能重新學會 3D 建模，並在 SLA 列印方面提升後處理技巧。",
+
+    "about_anime": "我推的動畫與角色",
+    "about_anime_title1": "約會大作戰",
+    "about_anime_content1": "我超推約會大作戰！不只動畫五季都看完了，還額外買了小說來看，我最推的角色是狂三！",
+    "about_anime_title2": "初音",
+    "about_anime_content2": "我也喜歡初音，雖然沒有到非常坑，，不過我還是有買她的周邊，還有 Cytus II 裡的角色！",
+
+
+     "_comment2": "notice",
+
+    "about_notice_title1": "拍攝注意事項",
+    "about_notice_contact": "私訊 Instagram 帳號 'ML Photo'",
+    "about_notice_editing": "只有調色跟微修圖",
+    "about_notice_delivery": "使用Google 相簿返圖",
+    "about_notice_editing_policy": "歡迎任何方式的修圖",
+    "about_notice_payment": "收費部分目前採施捨制(?",
+    "about_notice_posting": "若有發文請使用協作者",
+
+    "about_notice_title2": "設備",
+    "about_notice_camera": "Nikon Z50 (是個垃圾)",
+    "about_notice_flash": "外拍使用機頂閃(TT685 II)",
+    "about_notice_light": "場次使用閃燈及補光燈",
+    "about_notice_filter": "部分使用黑柔鏡片",
+    "about_notice_future": "(之後會有更多閃燈 現在沒錢)",
+
+
+    "_comment3": "boundaries",
+
+    "about_boundaries_title1": "我的雷點",
+    "about_boundaries_content1": "過度催促返圖",
+    "about_boundaries_content2": "我還有甚麼雷點(?",
+
+    "might_annoy_you_title": "可能雷你",
+    "might_annoy_1": "很吵",
+    "might_annoy_2": "會用一點點中國用語(例如:老師)",
+    "might_annoy_3": "不經腦講話(正在改善)",
+
+
+    "portfolio": "拿的出手的作品"
 }

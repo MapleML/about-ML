@@ -13,6 +13,7 @@ import {
   Square,
   Cuboid,
   Info,
+  FacebookIcon
 } from "lucide-react";
 import {
   FaInstagram,
@@ -21,6 +22,7 @@ import {
   FaReact,
   FaNode,
   FaCamera,
+  FaFacebook,
 } from "react-icons/fa";
 import { SiNextdotjs, SiOsu, SiTypescript } from "react-icons/si";
 
@@ -54,6 +56,8 @@ export const navItems: NavItem[] = [
   },
 ];
 
+import { useTranslations } from 'next-intl';
+
 export const socialLinks: SocialLink[] = [
   {
     icon: FaInstagram,
@@ -61,6 +65,12 @@ export const socialLinks: SocialLink[] = [
     className: "text-accent-500 transition-colors duration-200",
     ariaLabel: "Follow my photography account on Instagram",
   },
+  {icon: FaFacebook,
+    href: "https://www.facebook.com/maple.chen.906188",
+    className: "text-primary-500 transition-colors duration-200",
+    ariaLabel: "Follow my photography account on Facebook",
+  },
+
   {
     icon: FaInstagram,
     href: "https://www.instagram.com/ml_chen_dev/?hl=zh-tw",
@@ -87,147 +97,31 @@ export const commandAnimations = [
   "i wanna take a photo",
 ];
 
-export const interestTags: InterestTag[] = [
-  {
-    icon: Code,
-    text: "coding",
-    iconColor: "text-autumn-200",
-    textColor: "text-autumn-200",
-  },
-  {
-    icon: Camera,
-    text: "photography",
-    iconColor: "text-autumn-400",
-    textColor: "text-autumn-400",
-  },
-  {
-    icon: Cuboid,
-    text: "3D print",
-    iconColor: "text-autumn-500",
-    textColor: "text-autumn-500",
-  },
-];
+export function useInterestTags(): InterestTag[] {
+  const t = useTranslations();
 
-export const animeList: Record<string, AnimeItem[]> = {
-  watched: [
+  return [
     {
-      title: "孤獨搖滾",
-      rating: 5,
-      comment: "",
-      status: "watched",
+      icon: Code,
+      text: t("hero_coding"),
+      iconColor: "text-autumn-200",
+      textColor: "text-autumn-200",
     },
     {
-      title: "烙印勇士",
-      rating: 5,
-      comment: "",
-      status: "watched",
+      icon: Camera,
+      text: t("hero_photography"),
+      iconColor: "text-autumn-400",
+      textColor: "text-autumn-400",
     },
     {
-      title: "葬送的芙莉蓮",
-      rating: 5,
-      comment: "",
-      status: "watched",
+      icon: Cuboid,
+      text: t("hero_3D-print"),
+      iconColor: "text-autumn-500",
+      textColor: "text-autumn-500",
     },
-    {
-      title: "死神",
-      rating: 5,
-      comment: "",
-      status: "watched",
-    },
-    {
-      title: "進擊的巨人",
-      rating: 5,
-      comment: "",
-      status: "watched",
-    },
-    {
-      title: "K-ON！輕音部",
-      rating: 5,
-      comment: "",
-      status: "watched",
-    },
-    {
-      title: "夏洛特",
-      rating: 5,
-      comment: "",
-      status: "watched",
-    },
-    {
-      title: "莉可莉絲 Recoil",
-      rating: 5,
-      comment: "",
-      status: "watched",
-    },
-    {
-      title: "86 -不存在的戰區",
-      rating: 5,
-      comment: "",
-      status: "watched",
-    },
-    {
-      title: "JOJO的奇妙冒險",
-      rating: 5,
-      comment: "",
-      status: "watched",
-    },
-    {
-      title: "刀劍神域",
-      rating: 5,
-      comment: "",
-      status: "watched",
-    },
-    {
-      title: "無職轉生～到了異世界就拿出真本事～",
-      rating: 5,
-      comment: "",
-      status: "watched",
-    },
-    {
-      title: "肌肉魔法使",
-      rating: 5,
-      comment: "",
-      status: "watched",
-    },
-    {
-      title: "黑色五葉草",
-      rating: 5,
-      comment: "",
-      status: "watched",
-    },
-    {
-      title: "轉生公主與天才千金的魔法革命",
-      rating: 5,
-      comment: "",
-      status: "watched",
-    },
-    {
-      title: "海賊王",
-      rating: 5,
-      comment: "",
-      status: "watched",
-    },
-  ],
-  watching: [
-    {
-      title: "死神-千年血戰篇",
-      rating: 5,
-      comment: "",
-      status: "watching",
-    },
-    {
-      title: "BanG Dream! It's MyGO!!!!!",
-      rating: 5,
-      comment: "",
-      status: "watching",
-    },
-    {
-      title: "哎咕島消失的舔甜歌姬",
-      rating: 5,
-      comment: "",
-      status: "watching",
-    },
-  ],
-};
+  ];
+}
+
 
 /**
  * 定義卡片樣式的接口
@@ -251,42 +145,43 @@ export const cardStyles = {
 } as const;
 
 export const aboutTabs: AboutTab[] = [
- { id: "interests", label: "interests", icon: HeartIcon },
-  { id: "personality", label: "notice", icon: Info },
-  { id: "notice", label: "spoil", icon: Star },
+  { id: "interests", label: "about_favorite", icon: HeartIcon },
+  { id: "personality", label: "about_notice", icon: Info },
+  { id: "notice", label: "about_boundaries", icon: Star },
 ];
 
 export const personalityInfo = {
   communication: {
-    title: "約拍注意事項",
+    title: "about_notice_title1", 
     icon: Info,
     points: [
-      "私訊'ML Photo'這隻instagram帳號",
-      "只有調色跟微修圖",
-      "使用Google 相簿返圖",
-      "歡迎任何方式的修圖",
-      "收費部分目前採施捨制(?",
-      "若有發文請使用協作者",
+      "about_notice_contact",
+      "about_notice_editing",
+      "about_notice_delivery",
+      "about_notice_editing_policy",
+      "about_notice_payment",
+      "about_notice_posting",
     ],
   },
   personality: {
-    title: "設備",
+    title: "about_notice_title2",
     icon: Camera,
     points: [
-      "Nikon Z50",
-      "外拍使用機頂閃(TT685 II)",
-      "場次使用閃燈及補光燈",
-      "部分使用黑柔鏡片",
-      "(之後會有更多閃燈 現在沒錢)",
+      "about_notice_camera",
+      "about_notice_flash",
+      "about_notice_light",
+      "about_notice_filter",
+      "about_notice_future",
     ],
   },
 };
 
 export const aboutTags = [
-  { text: "16", variant: "primary" as const },
-  { text: "📷 photographer", variant: "secondary" as const },
-  { text: "🌐 frontend", variant: "accent" as const },
-  { text: " 🚮 garbage", variant: "primary" as const },
+  { text: "♈ 16", variant: "autumn" as const },
+  { key: "about_tag_photography", icon: "📷", variant: "autumn" as const },
+  { key: "about_tag_frontend", icon: "🌐", variant: "autumn" as const },
+  { key: "about_tag_3D", icon: "🧱", variant: "autumn" as const },
+  { key: "about_tag_garbdge", icon: "🚮", variant: "autumn" as const },
 ];
 
 export const projectData = {

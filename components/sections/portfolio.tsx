@@ -2,8 +2,8 @@
 
 import { useState, useEffect } from "react";
 
-import { animeList as animeData } from "@/constants";
-
+import { useInView } from "@/hooks/useInView";
+import { useTranslations } from 'next-intl';
 type AnimeStatus = "watched" | "watching";
 
 const MOBILE_DISPLAY_COUNT = 6;
@@ -11,7 +11,8 @@ const MOBILE_DISPLAY_COUNT = 6;
 export default function Anime() {
   const [activeTab, setActiveTab] = useState<AnimeStatus>("watched");
   const [showAll, setShowAll] = useState(false);
-
+  const [ref, inView, shouldAnimate] = useInView({ threshold: 0.2 });
+  const t = useTranslations();
   useEffect(() => {
     // 動態載入 Instagram 嵌入腳本
     if (window && document) {
@@ -30,10 +31,15 @@ export default function Anime() {
 
   return (
     <section
-      id="portfolio" >
-      <div className="mx-auto max-w-6xl px-4">
+      id="portfolio" className="mt-16">
+      <div
+        ref={ref}
+        className={`mx-auto max-w-6xl px-4 ${
+          inView ? (shouldAnimate ? "animate-slide-in" : "") : "opacity-0"
+        }`}
+      >
         <h1 className="mb-8 text-center text-4xl font-extrabold text-neutral-200">
-          拿得出手的作品
+          {t("portfolio")}
         </h1>
 
         <div className="mt-8 flex flex-wrap justify-center gap-8">

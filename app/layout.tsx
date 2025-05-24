@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import React from "react";
 import NavBar from "@/components/NavBar";
-
+import CustomCursor from "@/components/CustomCursor";
 export const metadata: Metadata = {
   title: "MapleML's Web",
   description: "a photographer, a programmer.",
@@ -27,6 +27,7 @@ export default function RootLayout({
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       </head>
       <body>
+        <CustomCursor />
         <BackgroundGradient />
         <NavBar />
         <main>{children}</main>

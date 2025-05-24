@@ -3,8 +3,8 @@
 import Image from "next/image";
 import React from "react";
 import { useTranslations } from 'next-intl';
-
-import { commandAnimations, interestTags, socialLinks } from "@/constants";
+import { useInterestTags } from "@/constants";
+import { socialLinks } from "@/constants";
 import { cn } from "@/lib/utils";
 import TypeWriter from "../TypeWriter";
 
@@ -29,10 +29,11 @@ const Avatar: React.FC = () => (
 
 const InterestTags: React.FC = () => {
   const t = useTranslations();
-  
+  const tags = useInterestTags();
   return (
     <div className="flex flex-wrap justify-center gap-3 lg:justify-start">
-      {interestTags.map((item, index) => {
+      
+      {tags.map((item, index) => {
         const Icon = item.icon;
         // 使用類型斷言來訪問 key 屬性
         const itemWithKey = item as any;
@@ -83,7 +84,7 @@ const SelfIntroduction: React.FC = () => {
 
   return (
     <div className="relative">
-      <div className="rounded-2xl bg-black/40 p-6 backdrop-blur-sm animate-slide-in">
+      <div className="rounded-2xl bg-black/40 p-5 backdrop-blur-sm ">
         <p className="text-center text-base leading-relaxed text-neutral-200 sm:text-lg lg:text-left">
           {t('hero_about')}
         </p>
@@ -97,9 +98,6 @@ export default function Hero() {
 
   // 用你的翻譯鍵來組成 TypeWriter 的內容
   const localizedCommands = [
-    t('hero_coding'),
-    t('hero_photography'), 
-    t('hero_3D-print'),
     t('hero_key1'),
     t('hero_key2')
   ];

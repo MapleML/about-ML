@@ -1,10 +1,77 @@
 {
-    "hero_about": " Hi i am MapleML, a 16-year-old student from Taiwan. i can't program well, i can't take a photo either.",
+    "hero_about": " Hi, I'm MapleML. You can also call me ML, ML Chen, Maple, or Maple Chen. I'm a 16-year-old high school student in Taiwan.",
     "hero_coding": "coding",
     "hero_photography": "photography",
     "hero_3D-print": "3D print",
-    "hero_key1": "abandon my life",
-    "hero_key2": "i want to take a photo",
-    "about_about-me": "",
-    "about_about": ""
+    "hero_key1": "Abandon my life",
+    "hero_key2": "I want to take a photo",
+    
+    "about_about-me": "I like photography—portraits, cosplayers, street scenes, events, and so on. I also like programming, but I don't know how to code. I'm just useless.",
+    "about_about": "About me",
+    "about_favorite": "favorite",
+    "about_notice": "notice",
+    "about_boundaries": "boundaries",
+    "about_tag_photography": "photographer",
+    "about_tag_frontend": "frontend",
+    "about_tag_3D": "3D printer",
+    "about_tag_garbdge": "garbage",
+
+    "_comment1": "favorite",
+
+    "about_photography": "photography",
+    "about_photography_title1":"Main subjects of photography",
+    "about_photography_content1":"Portraits,coser,street.",
+    "about_photography_title2":"Learning content",
+    "about_photography_content2":"I mainly shoot cosplay photography and I'm still learning how to light properly — sadly, lighting gear isn't cheap, so feel free to support me!",
+
+    "about_coding_website":"website development",
+    "about_coding_website_title1":"Next.js",
+    "about_coding_website_content1":"I'm using Next.js to build my website, as well as some other sites currently in development.",
+    "about_coding_website_title2":"Learning content",
+    "about_coding_website_content2": "Do you know《cytus 2》? There's something in this game called the \"iM system\" — I'm currently working on it!",
+
+    "about_3D": "3D modeling and printing",
+    "about_3D_title1": "introduce",
+    "about_3D_content1": "I'm learning to use 3d printer(FDM&SLA),and I used to use Onshape to make 3D models when I was in junior high school, but I've forgotten how to use it now...",
+    "about_3D_title2": "objective",
+    "about_3D_content2": "I hope to relearn 3D modeling and improve my post-processing skills when working with SLA printing.",
+    
+    "about_anime": "The anime and characters I'm a fan of",
+    "about_anime_title1": "Date A Live",
+    "about_anime_content1": "I'm a huge fan of Date A Live! Not only have I watched all five seasons of the anime, but I also went out of my way to buy the light novels. My favorite character is Kurumi!",
+    "about_anime_title2": "Miku",
+    "about_anime_content2": "I'm also a fan of Hatsune Miku, though not super hardcore. But I still bought some merch and her character in Cytus II.",
+
+
+    "_comment2": "notice",
+
+    "about_notice_title1": "Photo Shoot Guidelines",
+    "about_notice_contact": "DM the Instagram account 'ML Photo'",
+    "about_notice_editing": "Only color grading and minor retouching",
+    "about_notice_delivery": "Photos will be delivered via Google Photos",
+    "about_notice_editing_policy": "Any type of editing is welcome!",
+    "about_notice_payment": "Currently using a pay-what-you-want model (?)",
+    "about_notice_posting": "If you post the photos, please add me as a collaborator",
+
+    "about_notice_title2": "Equipment",
+    "about_notice_camera": "Nikon Z50 (is a trash)",
+    "about_notice_flash": "On-camera flash (TT685 II) for outdoor shoots",
+    "about_notice_light": "Off-camera flash and fill lights for events",
+    "about_notice_filter": "Occasionally uses black mist filters",
+    "about_notice_future": "(More flashes coming soon... once I can afford them)",
+
+
+    "_comment3": "boundaries",
+    
+    "about_boundaries_title1": "Things I Don't Tolerate",
+    "about_boundaries_content1": "Pushing for rapid photo delivery.",
+    "about_boundaries_content2": "I think that's about it.",
+
+    "might_annoy_you_title": "Things That Might Annoy You",
+    "might_annoy_1": "I can be a bit loud sometimes.",
+    "might_annoy_2": "I occasionally use some Chinese internet slang (like calling people 'laoshi').",
+    "might_annoy_3": "I tend to speak before thinking — but I'm working on it!",
+
+
+    "portfolio": "Works I'm proud of"
 }
