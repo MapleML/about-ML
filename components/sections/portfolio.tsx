@@ -1,18 +1,11 @@
 // components/sections/portfolio.tsx
 "use client";
 
-import dynamic from "next/dynamic";
 import { useTranslations } from "next-intl";
 import React from "react";
 
 import { useInView } from "@/hooks/useInView";
 
-
-
-// ❗ 使用 dynamic 並關閉 SSR
-const InstagramEmbed = dynamic(() => import("../InstagramEmbed"), {
-  ssr: false,
-});
 
 export default function Portfolio() {
   const [ref, inView, shouldAnimate] = useInView({ threshold: 0.2 });

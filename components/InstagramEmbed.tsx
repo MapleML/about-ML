@@ -1,7 +1,6 @@
-// components/InstagramEmbed.tsx
-"use client";
+'use client';
 
-import React, { useEffect } from "react";
+import { useEffect } from 'react';
 
 interface Instgrm {
   Embeds: {
@@ -17,33 +16,42 @@ declare global {
 
 export default function InstagramEmbed() {
   useEffect(() => {
-    const scriptId = "instagram-embed-script";
+    const scriptId = 'instagram-embed-script';
 
-    if (typeof window !== "undefined" && typeof document !== "undefined") {
-      if (!document.getElementById(scriptId)) {
-        const script = document.createElement("script");
+    const loadInstagramScript = () => {
+      const existingScript = document.getElementById(scriptId);
+      
+      if (!existingScript) {
+        const script = document.createElement('script');
         script.id = scriptId;
-        script.src = "//www.instagram.com/embed.js";
+        script.src = 'https://www.instagram.com/embed.js';
         script.async = true;
+        script.onload = () => {
+          window.instgrm?.Embeds?.process();
+        };
         document.body.appendChild(script);
-      } else if (window.instgrm?.Embeds) {
-        window.instgrm.Embeds.process();
+      } else {
+        // If already loaded, re-process
+        window.instgrm?.Embeds?.process();
       }
-    }
+    };
+
+    const timer = setTimeout(loadInstagramScript, 100);
+    return () => clearTimeout(timer);
   }, []);
 
   return (
     <div className="flex flex-wrap justify-center gap-8">
-      {/* eslint-disable-next-line tailwindcss/no-custom-classname */}
+      {/* Instagram Post 1 */}
       <blockquote
         className="instagram-media"
         data-instgrm-captioned
-        data-instgrm-permalink="https://www.instagram.com/p/DIfSJKgyswB/?utm_source=ig_embed&amp;utm_campaign=loading"
+        data-instgrm-permalink="https://www.instagram.com/p/DIfSJKgyswB/"
         data-instgrm-version="14"
-        style={{ maxWidth: 340, minWidth: 326, width: "99.375%" }}
+        style={{ maxWidth: 340, minWidth: 326, width: '99.375%' }}
       >
         <a
-          href="https://www.instagram.com/p/DIfSJKgyswB/?utm_source=ig_embed&amp;utm_campaign=loading"
+          href="https://www.instagram.com/p/DIfSJKgyswB/"
           target="_blank"
           rel="noopener noreferrer"
         >
@@ -51,16 +59,16 @@ export default function InstagramEmbed() {
         </a>
       </blockquote>
 
-      {/* eslint-disable-next-line tailwindcss/no-custom-classname */}
+      {/* Instagram Post 2 */}
       <blockquote
         className="instagram-media"
         data-instgrm-captioned
-        data-instgrm-permalink="https://www.instagram.com/p/DGk7IQoSdV1/?utm_source=ig_embed&amp;utm_campaign=loading"
+        data-instgrm-permalink="https://www.instagram.com/p/DGk7IQoSdV1/"
         data-instgrm-version="14"
-        style={{ maxWidth: 340, minWidth: 326, width: "99.375%" }}
+        style={{ maxWidth: 340, minWidth: 326, width: '99.375%' }}
       >
         <a
-          href="https://www.instagram.com/p/DGk7IQoSdV1/?utm_source=ig_embed&amp;utm_campaign=loading"
+          href="https://www.instagram.com/p/DGk7IQoSdV1/"
           target="_blank"
           rel="noopener noreferrer"
         >

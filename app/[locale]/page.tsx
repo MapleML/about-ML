@@ -1,11 +1,15 @@
 'use client';
 
-import dynamic from "next/dynamic";
+import dynamic from 'next/dynamic';
 
-const ClientHome = dynamic(() => import("@/components/ClientHome"), {
+const ClientHome = dynamic(() => import('@/components/ClientHome'), {
   ssr: false,
 });
 
 export default function Page() {
-  return <ClientHome />;
+  return (
+    <div className="min-h-screen">
+      <ClientHome />
+    </div>
+  );
 }
