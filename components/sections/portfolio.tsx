@@ -15,7 +15,7 @@ export default function Anime() {
   const t = useTranslations();
   useEffect(() => {
     // 動態載入 Instagram 嵌入腳本
-    if (window && document) {
+    if (typeof window !== "undefined" && typeof document !== "undefined") {
       const scriptId = "instagram-embed-script";
       if (!document.getElementById(scriptId)) {
         const script = document.createElement("script");
@@ -23,8 +23,8 @@ export default function Anime() {
         script.src = "//www.instagram.com/embed.js";
         script.async = true;
         document.body.appendChild(script);
-      } else if (window.instgrm) {
-        window.instgrm.Embeds.process();
+      } else if ((window as any).instgrm) {
+        (window as any).instgrm.Embeds.process();
       }
     }
   }, []);
