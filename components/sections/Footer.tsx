@@ -58,13 +58,19 @@ export default function Footer() {
             <p className="bg-gradient-to-r from-neutral-300 to-neutral-400 bg-clip-text text-x text-transparent">
               Domain supported by {" "}
               <a
-                href="https://coffeehost.net/"
+                href="https://discord.com/users/523114942434639873"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="underline hover:text-other-orange transition-colors"
               >
-              sangege | coffee host
-              </a>
+              sangege
+              </a> |
+                <a
+                href="https://coffeehost.net/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="underline hover:text-other-orange transition-colors"
+              > Coffee Host</a>
             </p>
           </div>
         </div>
