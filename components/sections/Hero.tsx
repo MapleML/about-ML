@@ -4,7 +4,7 @@ import Image from "next/image";
 import { useTranslations } from "next-intl";
 import React from "react";
 
-import { useInterestTags, socialLinks } from "@/constants";
+import { usenoticeTags, socialLinks } from "@/constants";
 import { cn } from "@/lib/utils";
 
 import TypeWriter from "../TypeWriter";
@@ -30,7 +30,7 @@ const Avatar: React.FC = () => (
   </div>
 );
 
-interface InterestTag {
+interface NoticeTag {
   icon: React.ComponentType<{ className?: string }>;
   text: string;
   iconColor: string;
@@ -38,16 +38,16 @@ interface InterestTag {
   key?: string;
 }
 
-const InterestTags: React.FC = () => {
+const NoticeTags: React.FC = () => {
   const t = useTranslations();
-  const tags = useInterestTags();
+  const tags = usenoticeTags();
   return (
     <div className="flex flex-wrap justify-center gap-3 lg:justify-start">
       
       {tags.map((item, index) => {
         const Icon = item.icon;
         // Use proper typing instead of any
-        const itemWithKey = item as InterestTag;
+        const itemWithKey = item as NoticeTag;
         const translatedText = itemWithKey.key ? t(itemWithKey.key) : item.text;
         
         return (
@@ -55,7 +55,7 @@ const InterestTags: React.FC = () => {
             key={index}
             className="flex items-center rounded-2xl bg-black/40 px-4 py-2 text-base backdrop-blur-sm sm:text-lg"
             role="status"
-            aria-label={`Interest: ${translatedText}`}
+            aria-label={`notice: ${translatedText}`}
           >
             <Icon className={`mr-2 size-5 sm:size-6 ${item.iconColor}`} />
             <span className={item.textColor}>{translatedText}</span>
@@ -144,7 +144,7 @@ export default function Hero() {
                   </div>
                 </div>
 
-                <InterestTags />
+                <NoticeTags />
                 <SelfIntroduction />
                 <SocialLinks />
               </div>

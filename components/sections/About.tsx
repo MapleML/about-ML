@@ -89,7 +89,7 @@ const SocialLinks: React.FC = () => (
 );
 
 export default function About() {
-  const [activeTab, setActiveTab] = useState<AboutTab["id"]>("interests");
+  const [activeTab, setActiveTab] = useState<AboutTab["id"]>("favorite");
   const t = useTranslations();
   const [ref, , shouldAnimate, everInView] = useInView({ threshold: 0.2 });
 
@@ -212,7 +212,7 @@ export default function About() {
 
         {/* Tab 內容 */}
         <div className="grid w-full gap-6">
-          {activeTab === "personality" && (
+          {activeTab === "notice" && (
             <div className="grid gap-6 sm:grid-cols-2">
               <InfoCard
                 icon={personalityInfo.communication.icon}
@@ -237,7 +237,7 @@ export default function About() {
             </div>
           )}
 
-          {activeTab === "interests" && (
+          {activeTab === "favorite" && (
             <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-2">
               <InfoCard icon={CameraIcon} title={t("about_photography")}>
                 <div className="space-y-4">
@@ -323,7 +323,7 @@ export default function About() {
             </div>
           )}
 
-          {activeTab === "notice" && (
+          {activeTab === "boundaries" && (
             <div className="grid gap-6 sm:grid-cols-2">
               <InfoCard icon={MessageCircle} title={t("about_boundaries_title1")}>
                 <div className="space-y-3 text-neutral-200">

@@ -1,37 +1,27 @@
 import {
   Home,
   User,
-  Heart,
   Code,
-  BedIcon,
   HeartIcon,
-  MessageCircle,
   Star,
-  UserIcon,
   Camera,
-  Computer,
-  Square,
   Cuboid,
   Info,
-  FacebookIcon
 } from "lucide-react";
 import { useTranslations } from 'next-intl';
 import {
   FaInstagram,
-  FaDiscord,
   FaGithub,
   FaReact,
   FaNode,
-  FaCamera,
   FaFacebook,
 } from "react-icons/fa";
 import { SiNextdotjs, SiTypescript } from "react-icons/si";
 
 import type {
   NavItem,
-  AnimeItem,
   SocialLink,
-  InterestTag,
+  noticeTags,
   AboutTab,
 } from "@/types";
 
@@ -96,7 +86,7 @@ export const commandAnimations = [
   "i wanna take a photo",
 ];
 
-export function useInterestTags(): InterestTag[] {
+export function usenoticeTags(): noticeTags[] {
   const t = useTranslations();
 
   return [
@@ -144,9 +134,9 @@ export const cardStyles = {
 } as const;
 
 export const aboutTabs: AboutTab[] = [
-  { id: "interests", label: "about_favorite", icon: HeartIcon },
-  { id: "personality", label: "about_notice", icon: Info },
-  { id: "notice", label: "about_boundaries", icon: Star },
+  { id: "favorite", label: "about_favorite", icon: HeartIcon },
+  { id: "notice", label: "about_notice", icon: Info },
+  { id: "boundaries", label: "about_boundaries", icon: Star },
 ];
 
 export const personalityInfo = {

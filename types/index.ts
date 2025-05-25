@@ -51,7 +51,7 @@ export interface TypeWriterProps {
 
 // About Types
 export interface AboutTab {
-  id: "personality" | "interests" | "notice";
+  id: "favorite" | "notice" | "boundaries";
   label: string;
   icon: LucideIcon;
 }
@@ -62,7 +62,7 @@ export interface PersonalityInfo {
     icon: LucideIcon;
     points: string[];
   };
-  personality: {
+  notice: {
     title: string;
     icon: LucideIcon;
     points: string[];
@@ -85,8 +85,8 @@ export interface SocialLink {
   ariaLabel?: string;
 }
 
-// InterestTag Types
-export interface InterestTag {
+// noticeTags Types
+export interface noticeTags {
   icon: LucideIcon;
   text: string;
   iconColor: string;
