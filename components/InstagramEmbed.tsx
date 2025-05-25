@@ -16,11 +16,11 @@ declare global {
 }
 
 export default function InstagramEmbed() {
-  const ref = useRef(null);
+  const ref = useRef<HTMLDivElement>(null);
   const { ref: inViewRef, inView } = useInView({ triggerOnce: true, threshold: 0.2 });
 
   // 合併 ref
-  function setRefs(node: any) {
+  function setRefs(node: HTMLDivElement | null) {
     ref.current = node;
     inViewRef(node);
   }

@@ -91,7 +91,7 @@ const SocialLinks: React.FC = () => (
 export default function About() {
   const [activeTab, setActiveTab] = useState<AboutTab["id"]>("favorite");
   const t = useTranslations();
-  const [ref, , shouldAnimate, everInView] = useInView({ threshold: 0.2 });
+  const [ref, everInView] = useInView({ threshold: 0.2 });
 
   const activeColors = [
     "bg-autumn-200",

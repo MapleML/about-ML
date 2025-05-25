@@ -40,7 +40,7 @@ export default function TypeWriter({
           if (currentText !== currentWord) {
             setCurrentText(currentWord.slice(0, currentText.length + 1));
           } else {
-            //等待刪除
+            // 等待刪除
             timeoutRef.current = setTimeout(() => {
               setIsDeleting(true);
             }, delayAfterWord);

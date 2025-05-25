@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useEffect } from 'react';
+import React from 'react';
 
 import InstagramEmbed from '@/components/InstagramEmbed';
 import About from '@/components/sections/About';
@@ -10,11 +10,6 @@ import Portfolio from '@/components/sections/portfolio';
 
 
 export default function ClientHome() {
-  useEffect(() => {
-    if (typeof window !== "undefined") {
-    }
-  }, []);
-
   return (
     <>
       <Hero />
