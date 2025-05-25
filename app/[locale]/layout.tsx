@@ -18,7 +18,6 @@ export default async function LocaleLayout(props: {
     notFound();
   }
 
-  // 明確傳入 locale
   const messages = await getMessages({ locale });
 
   return (

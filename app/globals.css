@@ -36,21 +36,21 @@
 }
 
 * {
-  scrollbar-width: none; /* 適用於 Firefox */
-  -ms-overflow-style: none; /* 適用於 IE 和 Edge */
+  scrollbar-width: none; 
+  -ms-overflow-style: none; 
 }
 
 *::-webkit-scrollbar {
-  display: none; /* 適用於 Chrome、Safari 和 Edge */
+  display: none; 
 }
 @keyframes border-reveal {
   0% {
-    opacity: 0; /* 外框完全透明 */
-    background-position: 0% 50%; /* 漸層從左開始 */
+    opacity: 0; 
+    background-position: 0% 50%; 
   }
   100% {
-    opacity: 1; /* 外框完全顯示 */
-    background-position: 100% 50%; /* 漸層移動到右側 */
+    opacity: 1; 
+    background-position: 100% 50%; 
   }
 }
 

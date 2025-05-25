@@ -41,7 +41,6 @@ export default function InstagramEmbed() {
         };
         document.body.appendChild(script);
       } else {
-        // If already loaded, re-process
         window.instgrm?.Embeds?.process();
       }
     };

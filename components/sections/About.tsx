@@ -184,7 +184,7 @@ export default function About() {
             {aboutTabs.map((tab, index) => {
               const Icon = tab.icon;
               const isActive = activeTab === tab.id;
-              const label = t(tab.label); // 這裡直接用 t 取得翻譯
+              const label = t(tab.label); 
 
               return (
                 <button

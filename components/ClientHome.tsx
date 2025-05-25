@@ -1,4 +1,3 @@
-// components/ClientHome.tsx
 'use client';
 
 import React, { useEffect } from 'react';
@@ -13,7 +12,6 @@ import Portfolio from '@/components/sections/portfolio';
 export default function ClientHome() {
   useEffect(() => {
     if (typeof window !== "undefined") {
-      // 可以安全使用 window
     }
   }, []);
 

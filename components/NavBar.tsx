@@ -232,7 +232,7 @@ export default function NavBar() {
             );
           })}
 
-          {/* 語言切換，僅顯示當前語言，點擊切換 */}
+          {/* 語言切換 */}
           <div className="ml-2 flex items-center gap-1.5">
             <button
               onClick={() =>

@@ -1,4 +1,3 @@
-// components/sections/portfolio.tsx
 "use client";
 
 import { useTranslations } from "next-intl";

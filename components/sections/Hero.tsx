@@ -44,7 +44,6 @@ const NoticeTags: React.FC = () => {
     <div className="flex flex-wrap justify-center gap-3 lg:justify-start">
       {tags.map((item, index) => {
         const Icon = item.icon;
-        // Use proper typing instead of any
         const itemWithKey = item as NoticeTag;
         const translatedText = itemWithKey.key ? t(itemWithKey.key) : item.text;
 
@@ -117,7 +116,6 @@ export default function Hero() {
   const t = useTranslations();
   const localizedCommands = [t('hero_key1'), t('hero_key2')];
 
-  // 這裡加 Intersection Observer
   const { ref: contentRef, inView: contentInView } = useInView({ triggerOnce: true, threshold: 0.2 });
 
   return (

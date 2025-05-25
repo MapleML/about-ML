@@ -8,7 +8,6 @@ export default function CustomCursor() {
   const [showCursor, setShowCursor] = useState(true);
 
   useEffect(() => {
-    // 判斷是否為觸控裝置
     if ("ontouchstart" in window || navigator.maxTouchPoints > 0) {
       setShowCursor(false);
     }
