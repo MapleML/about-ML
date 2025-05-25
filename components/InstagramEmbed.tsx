@@ -1,6 +1,7 @@
 'use client';
 
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
+import { useInView } from 'react-intersection-observer';
 
 interface Instgrm {
   Embeds: {
@@ -15,6 +16,15 @@ declare global {
 }
 
 export default function InstagramEmbed() {
+  const ref = useRef(null);
+  const { ref: inViewRef, inView } = useInView({ triggerOnce: true, threshold: 0.2 });
+
+  // 合併 ref
+  function setRefs(node: any) {
+    ref.current = node;
+    inViewRef(node);
+  }
+
   useEffect(() => {
     const scriptId = 'instagram-embed-script';
 
@@ -41,40 +51,47 @@ export default function InstagramEmbed() {
   }, []);
 
   return (
-    <div className="flex flex-wrap justify-center gap-8">
-      {/* Instagram Post 1 */}
-      <blockquote
-        className="instagram-media"
-        data-instgrm-captioned
-        data-instgrm-permalink="https://www.instagram.com/p/DIfSJKgyswB/"
-        data-instgrm-version="14"
-        style={{ maxWidth: 340, minWidth: 326, width: '99.375%' }}
-      >
-        <a
-          href="https://www.instagram.com/p/DIfSJKgyswB/"
-          target="_blank"
-          rel="noopener noreferrer"
+    <div
+      ref={setRefs}
+      className={`mx-auto max-w-6xl px-4 transition-all duration-700 ${
+        inView ? "animate-slide-in" : "opacity-0"
+      }`}
+    >
+      <div className="flex flex-wrap justify-center gap-8">
+        {/* Instagram Post 1 */}
+        <blockquote
+          className="instagram-media"
+          data-instgrm-captioned
+          data-instgrm-permalink="https://www.instagram.com/p/DIfSJKgyswB/"
+          data-instgrm-version="14"
+          style={{ maxWidth: 340, minWidth: 326, width: '99.375%' }}
         >
-          查看 Instagram 貼文
-        </a>
-      </blockquote>
+          <a
+            href="https://www.instagram.com/p/DIfSJKgyswB/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            查看 Instagram 貼文
+          </a>
+        </blockquote>
 
-      {/* Instagram Post 2 */}
-      <blockquote
-        className="instagram-media"
-        data-instgrm-captioned
-        data-instgrm-permalink="https://www.instagram.com/p/DGk7IQoSdV1/"
-        data-instgrm-version="14"
-        style={{ maxWidth: 340, minWidth: 326, width: '99.375%' }}
-      >
-        <a
-          href="https://www.instagram.com/p/DGk7IQoSdV1/"
-          target="_blank"
-          rel="noopener noreferrer"
+        {/* Instagram Post 2 */}
+        <blockquote
+          className="instagram-media"
+          data-instgrm-captioned
+          data-instgrm-permalink="https://www.instagram.com/p/DGk7IQoSdV1/"
+          data-instgrm-version="14"
+          style={{ maxWidth: 340, minWidth: 326, width: '99.375%' }}
         >
-          查看 Instagram 貼文
-        </a>
-      </blockquote>
+          <a
+            href="https://www.instagram.com/p/DGk7IQoSdV1/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            查看 Instagram 貼文
+          </a>
+        </blockquote>
+      </div>
     </div>
   );
 }

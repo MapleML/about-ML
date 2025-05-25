@@ -103,8 +103,8 @@ export default function About() {
     <section id="about" className="px-5 sm-px-6">
       <div
         ref={ref}
-        className={`mx-auto flex max-w-6xl flex-col items-center ${
-          everInView ? (shouldAnimate ? "animate-slide-in" : "") : "opacity-0"
+        className={`mx-auto flex max-w-6xl flex-col items-center transition-all duration-700 ${
+          everInView ? "animate-slide-in" : "opacity-0"
         }`}
       >
         {/* 個人資訊卡片 */}

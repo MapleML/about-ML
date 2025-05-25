@@ -238,7 +238,7 @@ export default function NavBar() {
               onClick={() =>
                 handleLocaleChange(pathname.split("/")[1] === "en" ? "zh-TW" : "en")
               }
-              className="flex items-center gap-1 rounded px-2 py-1 text-neutral-200 transition-all duration-200 ease-out hover:bg-black/50"
+              className="flex items-center gap-1 rounded-2xl px-2 py-1 text-neutral-200 transition-all duration-200 ease-out hover:bg-black/50"
             >
               <Globe className="text-white" size={18} />
               {pathname.split("/")[1] === "en" ? "中文" : "English"}
