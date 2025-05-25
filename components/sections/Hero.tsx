@@ -94,12 +94,19 @@ const SelfIntroduction: React.FC = () => {
   const t = useTranslations();
 
   return (
-    <div className="relative">
-      <div className="rounded-2xl bg-black/40 p-5 backdrop-blur-sm">
-        <p className="text-center text-base leading-relaxed text-neutral-200 sm:text-lg lg:text-left">
-          {t('hero_about')}
-        </p>
-      </div>
+    <div
+      className="
+        w-full rounded-2xl
+        border border-neutral-800/10
+        bg-black/40 p-2 
+        shadow-[0_8px_30px_rgb(0,0,0,0.06)] 
+        backdrop-blur-md
+        sm:p-4 md:p-6
+      "
+    >
+      <p className="text-left text-base leading-relaxed text-neutral-200 sm:text-lg">
+        {t('hero_about')}
+      </p>
     </div>
   );
 };
@@ -107,40 +114,40 @@ const SelfIntroduction: React.FC = () => {
 export default function Hero() {
   const t = useTranslations();
 
-  // 用你的翻譯鍵來組成 TypeWriter 的內容
   const localizedCommands = [
     t('hero_key1'),
     t('hero_key2')
   ];
 
   return (
-    <section id="home" className="animate-slide-in relative min-h-screen overflow-hidden">
-
-      <div className="relative flex min-h-screen items-center justify-center px-4 pb-12 pt-24 sm:px-6 lg:px-8">
-        <div className="mx-auto w-full max-w-7xl">
-          <div className="grid items-center gap-8 md:gap-12 lg:grid-cols-2 lg:gap-16">
-            {/* 圖片區塊 */}
-            <div className="relative flex items-center justify-center">
-              <Avatar />
-            </div>
-
-            {/* 文字內容區塊 */}
-            <div className="space-y-8">
-              <div className="space-y-4 text-center lg:text-left">
-                <h1 className="bg-gradient-to-r from-neutral-600 to-neutral-200 bg-clip-text font-serif text-3xl font-bold text-transparent sm:text-4xl md:text-5xl lg:text-6xl">
-                  I am{" "}
-                  <span className="bg-gradient-to-r from-autumn-600 to-autumn-400 bg-clip-text font-serif text-transparent">
-                    MapleML
-                  </span>{" "}
-                </h1>
-                <div className="h-[1.5em] font-mono text-lg text-neutral-300 sm:text-xl md:text-2xl">
-                   <TypeWriter words={localizedCommands} speed={100} />
-                </div>
+    <section id="home" className="px-5 sm:px-6">
+      <div className="mx-auto w-full max-w-6xl flex flex-col items-center">
+        <div className="relative flex min-h-screen items-center justify-center pb-12 pt-24">
+          <div className="mx-auto w-full">
+            <div className="grid items-center gap-8 md:gap-12 lg:grid-cols-2 lg:gap-16">
+              {/* 圖片區塊 */}
+              <div className="relative flex items-center justify-center">
+                <Avatar />
               </div>
 
-              <InterestTags />
-              <SelfIntroduction />
-              <SocialLinks />
+              {/* 文字內容區塊 */}
+              <div className="space-y-8">
+                <div className="space-y-4 text-center lg:text-left">
+                  <h1 className="bg-gradient-to-r from-neutral-600 to-neutral-200 bg-clip-text font-serif text-3xl font-bold text-transparent sm:text-4xl md:text-5xl lg:text-6xl">
+                    I am{" "}
+                    <span className="bg-gradient-to-r from-autumn-600 to-autumn-400 bg-clip-text font-serif text-transparent">
+                      MapleML
+                    </span>{" "}
+                  </h1>
+                  <div className="h-[1.5em] font-mono text-lg text-neutral-300 sm:text-xl md:text-2xl">
+                   <TypeWriter words={localizedCommands} speed={100} />
+                  </div>
+                </div>
+
+                <InterestTags />
+                <SelfIntroduction />
+                <SocialLinks />
+              </div>
             </div>
           </div>
         </div>
