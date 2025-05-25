@@ -1,12 +1,17 @@
 "use client";
 
 import Image from "next/image";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 
 export default function CustomCursor() {
   const cursorRef = useRef<HTMLImageElement>(null);
+  const [showCursor, setShowCursor] = useState(true);
 
   useEffect(() => {
+    // 判斷是否為觸控裝置
+    if ("ontouchstart" in window || navigator.maxTouchPoints > 0) {
+      setShowCursor(false);
+    }
     const move = (e: MouseEvent) => {
       if (cursorRef.current) {
         cursorRef.current.style.left = e.clientX + "px";
@@ -16,6 +21,8 @@ export default function CustomCursor() {
     window.addEventListener("mousemove", move);
     return () => window.removeEventListener("mousemove", move);
   }, []);
+
+  if (!showCursor) return null;
 
   return (
     <Image

@@ -100,7 +100,7 @@ export default function About() {
   ];
 
   return (
-    <section id="about">
+    <section id="about" className="px-5 sm-px-6">
       <div
         ref={ref}
         className={`mx-auto flex max-w-6xl flex-col items-center ${
