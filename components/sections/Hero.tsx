@@ -105,7 +105,7 @@ const SelfIntroduction: React.FC = () => {
         ${inView ? "animate-slide-in" : "opacity-0"}
       `}
     >
-      <p className="text-left text-base leading-relaxed text-neutral-200 sm:text-lg">
+      <p className="text-center text-base leading-relaxed text-neutral-200 sm:text-left">
         {t('hero_about')}
       </p>
     </div>
