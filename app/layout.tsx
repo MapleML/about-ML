@@ -7,13 +7,13 @@ import CustomCursor from "@/components/CustomCursor";
 import NavBar from "@/components/NavBar";
 
 export const metadata: Metadata = {
-  title: "MapleML's Web",
+  title: "MapleML's Web|MapleML的個人網站",
   description: "a 16 years photographer & programmer from taiwan.",
    keywords: ["MapleML", "前端開發", "攝影", "台灣", "高中生","photographey", "program", "Next.js", "React"],
   openGraph: {
-    title: "MapleML's Web",
+    title: "MapleML's Web|MapleML的個人網站",
     description: "a 16 years photographer & programmer from taiwan.",
-    siteName: "MapleML's Web",
+    siteName: "MapleML's Web|MapleML的個人網站",
     type: "website",
     url: "https://me.mapleml.xyz",
   },
