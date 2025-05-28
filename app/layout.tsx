@@ -8,13 +8,14 @@ import NavBar from "@/components/NavBar";
 
 export const metadata: Metadata = {
   title: "MapleML's Web",
-  description: "a photographer, a programmer.",
-  keywords: ["coding", "photography", "Next.js", "React"],
+  description: "a 16 years photographer & programmer from taiwan.",
+   keywords: ["MapleML", "前端開發", "攝影", "台灣", "高中生","photographey", "program", "Next.js", "React"],
   openGraph: {
     title: "MapleML's Web",
-    description: "a photographer, a programmer.",
+    description: "a 16 years photographer & programmer from taiwan.",
     siteName: "MapleML's Web",
     type: "website",
+    url: "https://me.mapleml.xyz",
   },
 };
 
