@@ -10,6 +10,7 @@ import {
 } from "lucide-react";
 import { useTranslations } from 'next-intl';
 import {
+  FaTwitter,
   FaInstagram,
   FaGithub,
   FaReact,
@@ -59,7 +60,11 @@ export const socialLinks: SocialLink[] = [
     className: "text-primary-500 transition-colors duration-200",
     ariaLabel: "Follow my photography account on Facebook",
   },
-
+  {icon: FaTwitter,
+    href: "https://x.com/leafMaple18438",
+    className: "text-primary-400 transition-colors duration-200",
+    ariaLabel: "Follow my photography account on Twitter",
+  },
   {
     icon: FaInstagram,
     href: "https://www.instagram.com/ml_chen_dev/?hl=zh-tw",
